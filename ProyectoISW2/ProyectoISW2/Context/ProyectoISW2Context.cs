@@ -11,5 +11,7 @@ namespace ProyectoISW2.Context
         public System.Data.Entity.DbSet<ProyectoISW2.Models.Prueba> Pruebas { get; set; }
 
         public System.Data.Entity.DbSet<ProyectoISW2.Models.Usuario> Usuarios { get; set; }
+
+        public System.Data.Entity.DbSet<ProyectoISW2.Models.Lapices> Lapices { get; set; }
     }
 }

@@ -176,14 +176,25 @@
     <Compile Include="Context\ProyectoISW2Context.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LapicesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PruebasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507020418005_InitialCreate.cs" />
+    <Compile Include="Migrations\201507020418005_InitialCreate.Designer.cs">
+      <DependentUpon>201507020418005_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507020424234_lapices.cs" />
+    <Compile Include="Migrations\201507020424234_lapices.Designer.cs">
+      <DependentUpon>201507020424234_lapices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Lapices.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Prueba.cs" />
     <Compile Include="Models\Usuario.cs" />
@@ -270,6 +281,11 @@
     <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\Usuarios\Login.cshtml" />
     <Content Include="Views\Home\Logout.cshtml" />
+    <Content Include="Views\Lapices\Create.cshtml" />
+    <Content Include="Views\Lapices\Delete.cshtml" />
+    <Content Include="Views\Lapices\Details.cshtml" />
+    <Content Include="Views\Lapices\Edit.cshtml" />
+    <Content Include="Views\Lapices\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -277,6 +293,14 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201507020418005_InitialCreate.resx">
+      <DependentUpon>201507020418005_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507020424234_lapices.resx">
+      <DependentUpon>201507020424234_lapices.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
