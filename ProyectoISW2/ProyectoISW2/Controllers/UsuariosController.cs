@@ -15,6 +15,15 @@ namespace ProyectoISW2.Controllers
     {
         private ProyectoISW2Context db = new ProyectoISW2Context();
 
+
+        public ActionResult User()
+        {
+            return View();
+        }
+        public ActionResult Admin()
+        {
+            return View();
+        }
         // GET: Usuarios
         public ActionResult Index()
         {
@@ -144,7 +153,7 @@ namespace ProyectoISW2.Controllers
 
 
 
-                    if (Contraseña.Equals(myUser.Contraseña) && Nombre.Equals(myUser.Nombre))
+                    if (Contraseña.Equals(myUser.Contraseña))
                     {
                         Session.Add("userId", myUser.Id);
                         Session.Add("username", myUser.Nombre);
@@ -162,7 +171,7 @@ namespace ProyectoISW2.Controllers
                 }
                 else
                 {
-
+                    
                     //ViewBag.LabelError = "Error al ingresar datos";
                     return View();
                 }

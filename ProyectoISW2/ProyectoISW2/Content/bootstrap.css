@@ -10,7 +10,35 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+.inacap {
+    background-color:#a30303 !important;
+    height: 85px !important;
+    
+    
+}
+.tinac {
+    color:#fff;
+    margin-top:25px;
+    font-size:30px;
+    padding-left:40px;
+}
+.inis {
+    margin-top:20px !important;
+    font-size:18px !important;
+}
+@media(max-width:900px) {
+    .inalogo {
+        margin-left:20px !important;
+    }
+}
+.inalogo {
+    position:relative !important;
+    margin-bottom:20px;
+    margin-top:20px;
+
+}
 body {
+    padding-top:85px !important;
   margin: 0;
 }
 article,
@@ -1594,7 +1622,7 @@ pre code {
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 1230px;
   }
 }
 .container-fluid {
@@ -4496,7 +4524,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   border-color: #080808;
 }
 .navbar-inverse .navbar-brand {
-  color: #9d9d9d;
+  color: #fff;
 }
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
@@ -4507,7 +4535,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #9d9d9d;
 }
 .navbar-inverse .navbar-nav > li > a {
-  color: #9d9d9d;
+  color: #fff;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
@@ -4538,7 +4566,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
-  border-color: #101010;
+  border-color: #d42222;
 }
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,

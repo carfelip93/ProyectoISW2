@@ -218,6 +218,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Icon.png" />
+    <Content Include="Image\logoINACAP.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
@@ -286,6 +287,8 @@
     <Content Include="Views\Lapices\Details.cshtml" />
     <Content Include="Views\Lapices\Edit.cshtml" />
     <Content Include="Views\Lapices\Index.cshtml" />
+    <Content Include="Views\Usuarios\User.cshtml" />
+    <Content Include="Views\Usuarios\Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
