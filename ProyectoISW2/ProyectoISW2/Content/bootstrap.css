@@ -26,6 +26,20 @@ html {
     margin-top:20px !important;
     font-size:18px !important;
 }
+@media(min-width:1200px) {
+    .formcentro {
+    margin-left: 350px !important;
+    margin-right: 350px !important;
+    
+}
+.mzero {
+    margin-left:0px !important; 
+    margin-right:0px !important; 
+}
+
+
+
+}
 @media(max-width:900px) {
     .inalogo {
         margin-left:20px !important;

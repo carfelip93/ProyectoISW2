@@ -5,13 +5,13 @@
     string Contraseña = ViewBag.Contraseña;
 }
 
-<h2>Login</h2>
+<h2>Inicio de Sesión</h2>
 @using (Html.BeginForm("Login", "Usuarios", FormMethod.Post))
 {
     <div class="form-horizontal">
-        <h4>Ingresar</h4>
+        <h4 class="formcentro "></h4>
         <hr />
-        <div class="form-group">
+        <div class="form-group formcentro ">
             @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
@@ -19,7 +19,7 @@
             </div>
         </div>
         @Html.Label(" ")
-        <div class="form-group">
+        <div class="form-group formcentro ">
             @Html.LabelFor(model => model.Contraseña, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Contraseña, new { htmlAttributes = new { @class = "form-control" } })
@@ -30,9 +30,9 @@
         @ViewBag.LabelError
         <div class="has-error">@ViewBag.Message</div>
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Ingresar" class="btn btn-default" />
+            <div class="col-md-offset-2 col-md-10 formcentro ">
+                <input type="submit" value="Ingresar" class="btn btn-default" style="margin-left:180px;" />
             </div>
         </div>
-        </div>
-        }
+    </div>
+}
