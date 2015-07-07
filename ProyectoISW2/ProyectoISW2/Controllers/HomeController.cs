@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ProyectoISW2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,7 +12,12 @@ namespace ProyectoISW2.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
+
+            return Redirect("/Usuarios/Inventario");
         }
 
         public ActionResult About()
