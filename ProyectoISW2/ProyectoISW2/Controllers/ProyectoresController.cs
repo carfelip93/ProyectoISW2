@@ -11,107 +11,107 @@ using ProyectoISW2.Models;
 
 namespace ProyectoISW2.Controllers
 {
-    public class PruebasController : Controller
+    public class ProyectoresController : Controller
     {
         private ProyectoISW2Context db = new ProyectoISW2Context();
 
-        // GET: Pruebas
+        // GET: Proyectores
         public ActionResult Index()
         {
-            return View(db.Pruebas.ToList());
+            return View(db.Proyectors.ToList());
         }
 
-        // GET: Pruebas/Details/5
+        // GET: Proyectores/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Prueba prueba = db.Pruebas.Find(id);
-            if (prueba == null)
+            Proyector proyector = db.Proyectors.Find(id);
+            if (proyector == null)
             {
                 return HttpNotFound();
             }
-            return View(prueba);
+            return View(proyector);
         }
 
-        // GET: Pruebas/Create
+        // GET: Proyectores/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Pruebas/Create
+        // POST: Proyectores/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nombre,Cantidad,Seccion")] Prueba prueba)
+        public ActionResult Create([Bind(Include = "Id,Modelo,Marca,Asignacion")] Proyector proyector)
         {
             if (ModelState.IsValid)
             {
-                db.Pruebas.Add(prueba);
+                db.Proyectors.Add(proyector);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(prueba);
+            return View(proyector);
         }
 
-        // GET: Pruebas/Edit/5
+        // GET: Proyectores/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Prueba prueba = db.Pruebas.Find(id);
-            if (prueba == null)
+            Proyector proyector = db.Proyectors.Find(id);
+            if (proyector == null)
             {
                 return HttpNotFound();
             }
-            return View(prueba);
+            return View(proyector);
         }
 
-        // POST: Pruebas/Edit/5
+        // POST: Proyectores/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nombre,Cantidad,Seccion")] Prueba prueba)
+        public ActionResult Edit([Bind(Include = "Id,Modelo,Marca,Asignacion")] Proyector proyector)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(prueba).State = EntityState.Modified;
+                db.Entry(proyector).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(prueba);
+            return View(proyector);
         }
 
-        // GET: Pruebas/Delete/5
+        // GET: Proyectores/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Prueba prueba = db.Pruebas.Find(id);
-            if (prueba == null)
+            Proyector proyector = db.Proyectors.Find(id);
+            if (proyector == null)
             {
                 return HttpNotFound();
             }
-            return View(prueba);
+            return View(proyector);
         }
 
-        // POST: Pruebas/Delete/5
+        // POST: Proyectores/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Prueba prueba = db.Pruebas.Find(id);
-            db.Pruebas.Remove(prueba);
+            Proyector proyector = db.Proyectors.Find(id);
+            db.Proyectors.Remove(proyector);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

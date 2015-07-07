@@ -13,5 +13,11 @@ namespace ProyectoISW2.Context
         public System.Data.Entity.DbSet<ProyectoISW2.Models.Usuario> Usuarios { get; set; }
 
         public System.Data.Entity.DbSet<ProyectoISW2.Models.Lapices> Lapices { get; set; }
+
+        public System.Data.Entity.DbSet<ProyectoISW2.Models.Manual> Manuals { get; set; }
+
+        public System.Data.Entity.DbSet<ProyectoISW2.Models.Proyector> Proyectors { get; set; }
+
+        public System.Data.Entity.DbSet<ProyectoISW2.Models.Curso> Cursoes { get; set; }
     }
 }

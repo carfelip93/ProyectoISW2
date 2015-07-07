@@ -6,15 +6,15 @@ using System.Web;
 
 namespace ProyectoISW2.Models
 {
-    public class Prueba
+    public class Proyector
     {
         [Key]
         public int Id { get; set; }
         [Required]
-        public string Nombre { get; set; }
+        public string Modelo { get; set; }
         [Required]
-        public int Cantidad { get; set; }
+        public string Marca { get; set; }
         [Required]
-        public string Seccion { get; set; }
+        public string Asignacion { get; set; }
     }
 }

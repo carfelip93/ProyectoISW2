@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ProyectoISW2.Models.Curso>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Lapices.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Manual.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Proyector.Modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prueba.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ubicacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CantidadLapices)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CantidadPrueba)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CantidadManual)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lapices.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Manual.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proyector.Modelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prueba.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ubicacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CantidadLapices)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CantidadPrueba)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CantidadManual)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

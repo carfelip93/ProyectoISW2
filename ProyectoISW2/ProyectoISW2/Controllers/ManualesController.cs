@@ -11,107 +11,107 @@ using ProyectoISW2.Models;
 
 namespace ProyectoISW2.Controllers
 {
-    public class PruebasController : Controller
+    public class ManualesController : Controller
     {
         private ProyectoISW2Context db = new ProyectoISW2Context();
 
-        // GET: Pruebas
+        // GET: Manuales
         public ActionResult Index()
         {
-            return View(db.Pruebas.ToList());
+            return View(db.Manuals.ToList());
         }
 
-        // GET: Pruebas/Details/5
+        // GET: Manuales/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Prueba prueba = db.Pruebas.Find(id);
-            if (prueba == null)
+            Manual manual = db.Manuals.Find(id);
+            if (manual == null)
             {
                 return HttpNotFound();
             }
-            return View(prueba);
+            return View(manual);
         }
 
-        // GET: Pruebas/Create
+        // GET: Manuales/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Pruebas/Create
+        // POST: Manuales/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nombre,Cantidad,Seccion")] Prueba prueba)
+        public ActionResult Create([Bind(Include = "Id,Nombre,Cantidad,Seccion")] Manual manual)
         {
             if (ModelState.IsValid)
             {
-                db.Pruebas.Add(prueba);
+                db.Manuals.Add(manual);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(prueba);
+            return View(manual);
         }
 
-        // GET: Pruebas/Edit/5
+        // GET: Manuales/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Prueba prueba = db.Pruebas.Find(id);
-            if (prueba == null)
+            Manual manual = db.Manuals.Find(id);
+            if (manual == null)
             {
                 return HttpNotFound();
             }
-            return View(prueba);
+            return View(manual);
         }
 
-        // POST: Pruebas/Edit/5
+        // POST: Manuales/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nombre,Cantidad,Seccion")] Prueba prueba)
+        public ActionResult Edit([Bind(Include = "Id,Nombre,Cantidad,Seccion")] Manual manual)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(prueba).State = EntityState.Modified;
+                db.Entry(manual).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(prueba);
+            return View(manual);
         }
 
-        // GET: Pruebas/Delete/5
+        // GET: Manuales/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Prueba prueba = db.Pruebas.Find(id);
-            if (prueba == null)
+            Manual manual = db.Manuals.Find(id);
+            if (manual == null)
             {
                 return HttpNotFound();
             }
-            return View(prueba);
+            return View(manual);
         }
 
-        // POST: Pruebas/Delete/5
+        // POST: Manuales/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Prueba prueba = db.Pruebas.Find(id);
-            db.Pruebas.Remove(prueba);
+            Manual manual = db.Manuals.Find(id);
+            db.Manuals.Remove(manual);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

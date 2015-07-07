@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ProyectoISW2.Models
 {
-    public class Prueba
+    public class Manual
     {
         [Key]
         public int Id { get; set; }
