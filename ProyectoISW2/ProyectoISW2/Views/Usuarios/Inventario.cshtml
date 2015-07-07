@@ -1,7 +1,12 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    ViewBag.Title = "Inventario";
+}
+
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
@@ -11,12 +16,12 @@
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top inacap">
-        
+
         <div class="container">
             <div class="navbar-header">
-                
+
                 <img src="~/Image/logoINACAP.png" class="inalogo" />
-                
+
             </div>
             <div class="navbar-collapse collapse">
                 @if (Session["userId"] == null)
@@ -29,7 +34,7 @@
                     {
                         <ul class="nav navbar-nav inis baninis">
                             <li>@Html.ActionLink("Usuarios", "Index", "Usuarios")</li>
-                            <li>@Html.ActionLink("Inventario", "Inventario", "Usuarios")</li>
+                            <li>@Html.ActionLink("Inventario", "Index", "Pruebas")</li>
                             <li>@Html.ActionLink("Cursos", "Index", "Lapices")</li>
                             <li>@Html.ActionLink("Stock", "Index", "Lapices")</li>
                             <li>@Html.ActionLink("Informes", "Index", "Lapices")</li>
@@ -38,29 +43,37 @@
                     if (Session["rol"].Equals("Usuario"))
                     {
                         <ul class="nav navbar-nav inis baninis">
-                            
-                            <li>@Html.ActionLink("Inventario", "Inventario", "Usuarios")</li>
+
+                            <li>@Html.ActionLink("Inventario", "Index", "Pruebas")</li>
                             <li>@Html.ActionLink("Cursos", "Index", "Lapices")</li>
                             <li>@Html.ActionLink("Stock", "Index", "Lapices")</li>
                         </ul>
                     }
 
                 }
-                
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
+        
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-        </footer>
-    </div>
+   <div class="custmenu">
 
+       <nav class="navbar navbar-default " role="navigation">
+
+           <ul class="nav navbar-nav ">
+               <li class="custli">@Html.ActionLink("Manuales", "Index", "Manuales")</li>
+               <li class ="custli">@Html.ActionLink("Pruebas", "Index", "Pruebas")</liclass>
+               <li class="custli">@Html.ActionLink("Lapices", "Index", "Lapices")</li>
+               <li class="custli">@Html.ActionLink("Proyectores", "Index", "Proyectores")</li>
+
+           </ul>
+       </nav>
+   </div>
+    
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
 </body>
 </html>
+

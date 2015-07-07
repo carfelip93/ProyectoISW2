@@ -3,12 +3,23 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="custmenu">
 
-<h2>Index</h2>
+    <nav class="navbar navbar-default " role="navigation">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+        <ul class="nav navbar-nav ">
+            <li class="custli">@Html.ActionLink("Manuales", "Index", "Manuales")</li>
+            <li class="custli">@Html.ActionLink("Pruebas", "Index", "Pruebas")</liclass>
+            <li class="custli">@Html.ActionLink("Lapices", "Index", "Lapices")</li>
+            <li class="custli">@Html.ActionLink("Proyectores", "Index", "Proyectores")</li>
+
+        </ul>
+    </nav>
+</div>
+
+<h2>Pruebas</h2>
+
+
 <table class="table">
     <tr>
         <th>
@@ -29,9 +40,8 @@
             @Html.DisplayFor(modelItem => item.Cantidad)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            | @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+           
         </td>
     </tr>
 }

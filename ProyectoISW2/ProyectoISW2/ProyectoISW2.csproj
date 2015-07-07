@@ -191,6 +191,10 @@
     <Compile Include="Migrations\201507020424234_lapices.Designer.cs">
       <DependentUpon>201507020424234_lapices.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507062359084_algo.cs" />
+    <Compile Include="Migrations\201507062359084_algo.Designer.cs">
+      <DependentUpon>201507062359084_algo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -287,8 +291,7 @@
     <Content Include="Views\Lapices\Details.cshtml" />
     <Content Include="Views\Lapices\Edit.cshtml" />
     <Content Include="Views\Lapices\Index.cshtml" />
-    <Content Include="Views\Usuarios\User.cshtml" />
-    <Content Include="Views\Usuarios\Admin.cshtml" />
+    <Content Include="Views\Usuarios\Inventario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -303,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201507020424234_lapices.resx">
       <DependentUpon>201507020424234_lapices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507062359084_algo.resx">
+      <DependentUpon>201507062359084_algo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

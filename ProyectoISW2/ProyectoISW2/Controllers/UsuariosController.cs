@@ -16,14 +16,11 @@ namespace ProyectoISW2.Controllers
         private ProyectoISW2Context db = new ProyectoISW2Context();
 
 
-        public ActionResult User()
+        public ActionResult Inventario()
         {
             return View();
         }
-        public ActionResult Admin()
-        {
-            return View();
-        }
+        
         // GET: Usuarios
         public ActionResult Index()
         {
