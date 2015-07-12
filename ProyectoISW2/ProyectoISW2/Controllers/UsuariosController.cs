@@ -16,11 +16,7 @@ namespace ProyectoISW2.Controllers
         private ProyectoISW2Context db = new ProyectoISW2Context();
 
 
-        public ActionResult Stock()
-        {
-            return View();
-        }
-
+      
         public ActionResult Inventario()
         {
             return View();
