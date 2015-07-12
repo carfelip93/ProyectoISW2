@@ -52,14 +52,37 @@ namespace ProyectoISW2.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Ot,Fecha,Ubicacion,LapicesId,CantidadLapices,PruebaId,CantidadPrueba,ManualId,CantidadManual,ProyectorId")] Curso curso)
+        public ActionResult Create(int CantidadLapices,int LapicesId, [Bind(Include = "Id,Ot,Docente,Fecha,Ubicacion,LapicesId,CantidadLapices,PruebaId,CantidadPrueba,ManualId,CantidadManual,ProyectorId")] Curso curso)
         {
+            
             if (ModelState.IsValid)
             {
+                ViewBag.CantidadLapicess = CantidadLapices;
+                ViewBag.LapicesIdd = LapicesId;
+
+                int cantbd = 0, cantf = 0;
+                var queryl = (from l in db.Lapices
+                              where l.Id == LapicesId
+                              select l);
+
+                if (queryl.Count() > 0 && queryl != null)
+                {
+                    Lapices lapices = queryl.First();
+
+                    cantbd = Convert.ToInt32(lapices.Cantidad);
+                    cantf = cantbd - CantidadLapices;
+                    lapices.Cantidad = cantf;
+
+                    
+                    db.SaveChanges();
+
+                }
                 db.Cursoes.Add(curso);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            
 
             ViewBag.LapicesId = new SelectList(db.Lapices, "Id", "Id", curso.LapicesId);
             ViewBag.ManualId = new SelectList(db.Manuals, "Id", "Nombre", curso.ManualId);
@@ -92,7 +115,7 @@ namespace ProyectoISW2.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Ot,Fecha,Ubicacion,LapicesId,CantidadLapices,PruebaId,CantidadPrueba,ManualId,CantidadManual,ProyectorId")] Curso curso)
+        public ActionResult Edit([Bind(Include = "Id,Ot,Docente,Fecha,Ubicacion,LapicesId,CantidadLapices,PruebaId,CantidadPrueba,ManualId,CantidadManual,ProyectorId")] Curso curso)
         {
             if (ModelState.IsValid)
             {

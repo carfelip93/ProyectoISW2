@@ -210,6 +210,10 @@
     <Compile Include="Migrations\201507071605025_fechaa.Designer.cs">
       <DependentUpon>201507071605025_fechaa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507120253546_cursodocente.cs" />
+    <Compile Include="Migrations\201507120253546_cursodocente.Designer.cs">
+      <DependentUpon>201507120253546_cursodocente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Curso.cs" />
@@ -351,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201507071605025_fechaa.resx">
       <DependentUpon>201507071605025_fechaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507120253546_cursodocente.resx">
+      <DependentUpon>201507120253546_cursodocente.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

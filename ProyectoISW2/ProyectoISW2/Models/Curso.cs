@@ -12,8 +12,9 @@ namespace ProyectoISW2.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public int Ot { get; set; }
+        public string Ot { get; set; }
         [Required]
+        public string Docente { get; set; }
 
         
         [DataType(DataType.Date)]
