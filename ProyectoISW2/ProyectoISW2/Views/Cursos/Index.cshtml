@@ -11,76 +11,90 @@
 </p>
 <table class="table">
     <tr>
-        
         <th>
-            Manual
-        </th>
-        <th>
-            Proyector
-        </th>
-        <th>
-            Prueba
-        </th>
-        <th>
-           N° OT
-        </th>
-        <th>
-            Docente
+            N° OT
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Fecha)
         </th>
         <th>
+            Docente
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Ubicacion)
         </th>
         <th>
-            N° Lapices
+            Prueba
         </th>
         <th>
             N° Pruebas
         </th>
         <th>
+            Manual
+        </th>
+        <th>
             N°Manuales
         </th>
+        <th>
+            N° Lapices
+        </th>
+        <th>
+            Proyector
+        </th>
+        
+        
+        
+       
+        
+        
+        
+        
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.Manual.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Proyector.Modelo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Prueba.Nombre)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Ot)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Docente)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Fecha)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Docente)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Ubicacion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CantidadLapices)
+            @Html.DisplayFor(modelItem => item.Prueba.Nombre)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CantidadPrueba)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Manual.Nombre)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.CantidadManual)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.CantidadLapices)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proyector.Modelo)
+        </td>
+        
+        
+        
+        
+        
+        
+        
+        
+        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+           
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>

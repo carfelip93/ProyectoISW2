@@ -52,15 +52,22 @@ namespace ProyectoISW2.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(int CantidadLapices,int LapicesId, [Bind(Include = "Id,Ot,Docente,Fecha,Ubicacion,LapicesId,CantidadLapices,PruebaId,CantidadPrueba,ManualId,CantidadManual,ProyectorId")] Curso curso)
+        public ActionResult Create(DateTime Fecha, int CantidadLapices,int LapicesId,int CantidadPrueba,int PruebaId,int CantidadManual,int ManualId,  
+            [Bind(Include = "Id,Ot,Docente,Fecha,Ubicacion,LapicesId,CantidadLapices,PruebaId,CantidadPrueba,ManualId,CantidadManual,ProyectorId")] Curso curso)
         {
             
             if (ModelState.IsValid)
             {
                 ViewBag.CantidadLapicess = CantidadLapices;
                 ViewBag.LapicesIdd = LapicesId;
+                ViewBag.CantidadPruebass = CantidadPrueba;
+                ViewBag.PruebasIdd = PruebaId;
+                ViewBag.Cantidadmanualess = CantidadManual;
+                ViewBag.ManualesIdd = ManualId;
+                ViewBag.Fechasa = Fecha;
 
-                int cantbd = 0, cantf = 0;
+                int cantlbd = 0, cantlf = 0, cantpbd = 0, cantpf = 0, cantmbd = 0, cantmf = 0;
+
                 var queryl = (from l in db.Lapices
                               where l.Id == LapicesId
                               select l);
@@ -69,17 +76,71 @@ namespace ProyectoISW2.Controllers
                 {
                     Lapices lapices = queryl.First();
 
-                    cantbd = Convert.ToInt32(lapices.Cantidad);
-                    cantf = cantbd - CantidadLapices;
-                    lapices.Cantidad = cantf;
-
-                    
-                    db.SaveChanges();
+                    cantlbd = Convert.ToInt32(lapices.Cantidad);
+                    cantlf = cantlbd - CantidadLapices;
+                    lapices.Cantidad = cantlf;
 
                 }
-                db.Cursoes.Add(curso);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var queryp = (from p in db.Pruebas
+                              where p.Id == PruebaId
+                              select p);
+
+                if (queryp.Count() > 0 && queryp != null)
+                {
+                    Prueba prueba = queryp.First();
+
+                    cantpbd = Convert.ToInt32(prueba.Cantidad);
+                    cantpf = cantpbd - CantidadPrueba;
+                    prueba.Cantidad = cantpf;
+
+                }
+                var querym = (from m in db.Manuals
+                              where m.Id == ManualId
+                              select m);
+
+                if (querym.Count() > 0 && querym != null)
+                {
+                    Manual manual = querym.First();
+
+                    cantmbd = Convert.ToInt32(manual.Cantidad);
+                    cantmf = cantmbd - CantidadManual;
+                    manual.Cantidad = cantmf;
+
+                }
+                if (Fecha.Year >= 1900)
+                {
+                    if (cantlf <= 0)
+                    {
+                        ViewBag.Message = "Lapices no suficientes";
+                    }
+                    else
+                    {
+                        if (cantpf <= 0)
+                        {
+                            ViewBag.Message = "Pruebas no suficientes";
+                        }
+                        else
+                        {
+                            if (cantmf <= 0)
+                            {
+                                ViewBag.Message = "Manuales no suficientes";
+                            }
+                            else
+                            {
+                                db.Cursoes.Add(curso);
+                                db.SaveChanges();
+                                return RedirectToAction("Index");
+                            }
+                        }
+                    }
+
+                }
+                else
+                {
+                    ViewBag.Message = "Ingrese Fecha Valida";
+                }
+               
+                
             }
 
             

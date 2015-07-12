@@ -19,5 +19,7 @@ namespace ProyectoISW2.Context
         public System.Data.Entity.DbSet<ProyectoISW2.Models.Proyector> Proyectors { get; set; }
 
         public System.Data.Entity.DbSet<ProyectoISW2.Models.Curso> Cursoes { get; set; }
+
+        public System.Data.Entity.DbSet<ProyectoISW2.Models.Stock> Stocks { get; set; }
     }
 }
