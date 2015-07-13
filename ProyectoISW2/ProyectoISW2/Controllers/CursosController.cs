@@ -52,7 +52,7 @@ namespace ProyectoISW2.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(DateTime Fecha, int CantidadLapices,int LapicesId,int CantidadPrueba,int PruebaId,int CantidadManual,int ManualId,  
+        public ActionResult Create(DateTime? Fecha, int? CantidadLapices,int LapicesId,int? CantidadPrueba,int PruebaId,int? CantidadManual,int ManualId,  
             [Bind(Include = "Id,Ot,Docente,Fecha,Ubicacion,LapicesId,CantidadLapices,PruebaId,CantidadPrueba,ManualId,CantidadManual,ProyectorId")] Curso curso)
         {
             
@@ -77,7 +77,7 @@ namespace ProyectoISW2.Controllers
                     Lapices lapices = queryl.First();
 
                     cantlbd = Convert.ToInt32(lapices.Cantidad);
-                    cantlf = cantlbd - CantidadLapices;
+                    cantlf = cantlbd - Convert.ToInt32(CantidadLapices);
                     lapices.Cantidad = cantlf;
 
                 }
@@ -90,7 +90,7 @@ namespace ProyectoISW2.Controllers
                     Prueba prueba = queryp.First();
 
                     cantpbd = Convert.ToInt32(prueba.Cantidad);
-                    cantpf = cantpbd - CantidadPrueba;
+                    cantpf = cantpbd - Convert.ToInt32(CantidadPrueba);
                     prueba.Cantidad = cantpf;
 
                 }
@@ -103,11 +103,11 @@ namespace ProyectoISW2.Controllers
                     Manual manual = querym.First();
 
                     cantmbd = Convert.ToInt32(manual.Cantidad);
-                    cantmf = cantmbd - CantidadManual;
+                    cantmf = cantmbd - Convert.ToInt32(CantidadManual);
                     manual.Cantidad = cantmf;
 
                 }
-                if (Fecha.Year >= 1900)
+                if (Convert.ToDateTime(Fecha).Year >= 1900)
                 {
                     if (cantlf <= 0)
                     {

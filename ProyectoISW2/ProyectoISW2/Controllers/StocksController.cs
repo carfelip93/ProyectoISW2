@@ -51,33 +51,99 @@ namespace ProyectoISW2.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,LapicesId,CantidadLapices,PruebaId,CantidadPrueba,ManualId,CantidadManual")] Stock stock)
+        public ActionResult Create(int? CantidadLapices, int LapicesId, int? CantidadPrueba, int PruebaId, int? CantidadManual, int ManualId,
+            [Bind(Include = "Id,LapicesId,CantidadLapices,PruebaId,CantidadPrueba,ManualId,CantidadManual")] Stock stock)
         {
-            if (ModelState.IsValid)
-            {
-                db.Stocks.Add(stock);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            
+           
+           
+                if (ModelState.IsValid)
+                {
+                    ViewBag.CantidadLapicess = CantidadLapices;
+                    ViewBag.LapicesIdd = LapicesId;
+                    ViewBag.CantidadPruebass = CantidadPrueba;
+                    ViewBag.PruebasIdd = PruebaId;
+                    ViewBag.Cantidadmanualess = CantidadManual;
+                    ViewBag.ManualesIdd = ManualId;
 
-            ViewBag.LapicesId = new SelectList(db.Lapices, "Id", "Id", stock.LapicesId);
-            ViewBag.ManualId = new SelectList(db.Manuals, "Id", "Nombre", stock.ManualId);
-            ViewBag.PruebaId = new SelectList(db.Pruebas, "Id", "Nombre", stock.PruebaId);
-            return View(stock);
-        }
 
-        // GET: Stocks/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Stock stock = db.Stocks.Find(id);
-            if (stock == null)
-            {
-                return HttpNotFound();
-            }
+                    int cantlbd = 0, cantlf = 0, cantpbd = 0, cantpf = 0, cantmbd = 0, cantmf = 0;
+
+                    var queryl = (from l in db.Lapices
+                                  where l.Id == LapicesId
+                                  select l);
+
+                    if (queryl.Count() > 0 && queryl != null)
+                    {
+                        Lapices lapices = queryl.First();
+
+                        cantlbd = Convert.ToInt32(lapices.Cantidad);
+                        cantlf = cantlbd + Convert.ToInt32(CantidadLapices);
+                        lapices.Cantidad = cantlf;
+
+                    }
+                    else
+                    {
+                        ViewBag.Message = "Ingrese Valor Valido";
+                        //ViewBag.LabelError = "Error al ingresar datos";
+                        return View();
+                    }
+                    var queryp = (from p in db.Pruebas
+                                  where p.Id == PruebaId
+                                  select p);
+
+                    if (queryp.Count() > 0 && queryp != null)
+                    {
+                        Prueba prueba = queryp.First();
+
+                        cantpbd = Convert.ToInt32(prueba.Cantidad);
+                        cantpf = cantpbd + Convert.ToInt32(CantidadPrueba);
+                        prueba.Cantidad = cantpf;
+
+                    }
+                    var querym = (from m in db.Manuals
+                                  where m.Id == ManualId
+                                  select m);
+
+                    if (querym.Count() > 0 && querym != null)
+                    {
+                        Manual manual = querym.First();
+
+                        cantmbd = Convert.ToInt32(manual.Cantidad);
+                        cantmf = cantmbd + Convert.ToInt32(CantidadManual);
+                        manual.Cantidad = cantmf;
+
+                    }
+
+                    if (cantlf <= 0)
+                    {
+                        ViewBag.Message = "Ingrese Valor Positivo";
+                    }
+                    else
+                    {
+                        if (cantpf <= 0)
+                        {
+                            ViewBag.Message = "Ingrese Valor Positivo";
+                        }
+                        else
+                        {
+                            if (cantmf <= 0)
+                            {
+                                ViewBag.Message = "Ingrese Valor Positivo";
+                            }
+                            else
+                            {
+                                db.Stocks.Add(stock);
+                                db.SaveChanges();
+                                return RedirectToAction("Index");
+                            }
+                        }
+                    }
+                }
+            
+            
+
+
             ViewBag.LapicesId = new SelectList(db.Lapices, "Id", "Id", stock.LapicesId);
             ViewBag.ManualId = new SelectList(db.Manuals, "Id", "Nombre", stock.ManualId);
             ViewBag.PruebaId = new SelectList(db.Pruebas, "Id", "Nombre", stock.PruebaId);
