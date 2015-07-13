@@ -82,12 +82,7 @@ namespace ProyectoISW2.Controllers
                         lapices.Cantidad = cantlf;
 
                     }
-                    else
-                    {
-                        ViewBag.Message = "Ingrese Valor Valido";
-                        //ViewBag.LabelError = "Error al ingresar datos";
-                        return View();
-                    }
+                   
                     var queryp = (from p in db.Pruebas
                                   where p.Id == PruebaId
                                   select p);
@@ -115,19 +110,19 @@ namespace ProyectoISW2.Controllers
 
                     }
 
-                    if (cantlf <= 0)
+                    if (cantlf < cantlbd)
                     {
                         ViewBag.Message = "Ingrese Valor Positivo";
                     }
                     else
                     {
-                        if (cantpf <= 0)
+                        if (cantpf < cantpbd)
                         {
                             ViewBag.Message = "Ingrese Valor Positivo";
                         }
                         else
                         {
-                            if (cantmf <= 0)
+                            if (cantmf < cantmbd)
                             {
                                 ViewBag.Message = "Ingrese Valor Positivo";
                             }
