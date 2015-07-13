@@ -50,7 +50,12 @@ namespace ProyectoISW2.Controllers
         public ActionResult Create([Bind(Include = "Id,Modelo,Marca,Asignacion")] Proyector proyector)
         {
             if (ModelState.IsValid)
+            
             {
+
+                proyector.Marca = proyector.Marca.ToUpper();
+                proyector.Modelo = proyector.Modelo.ToUpper();
+                proyector.Asignacion = proyector.Asignacion.ToUpper();
                 db.Proyectors.Add(proyector);
                 db.SaveChanges();
                 return RedirectToAction("Index");

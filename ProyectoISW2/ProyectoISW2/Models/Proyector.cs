@@ -10,7 +10,9 @@ namespace ProyectoISW2.Models
     {
         [Key]
         public int Id { get; set; }
+
         [Required]
+        
         public string Modelo { get; set; }
         [Required]
         public string Marca { get; set; }

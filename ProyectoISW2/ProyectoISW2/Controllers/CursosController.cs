@@ -127,6 +127,9 @@ namespace ProyectoISW2.Controllers
                             }
                             else
                             {
+                                curso.Ot = curso.Ot.ToUpper();
+                                curso.Docente = curso.Docente.ToUpper();
+                                curso.Ubicacion = curso.Ubicacion.ToUpper();
                                 db.Cursoes.Add(curso);
                                 db.SaveChanges();
                                 return RedirectToAction("Index");
