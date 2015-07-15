@@ -1,67 +1,8 @@
-﻿
+﻿@model ProyectoISW2.Models.Usuario
+
 @{
     ViewBag.Title = "Inventario";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top inacap">
-
-        <div class="container">
-            <div class="navbar-header">
-
-                <img src="~/Image/logoINACAP.png" class="inalogo" />
-
-            </div>
-            <div class="navbar-collapse collapse">
-                @if (Session["userId"] == null)
-                {
-                    <ul class="nav navbar-nav"><li class="tinac">Inventario de Capacitaciones</li></ul>
-                }
-                else
-                {
-                    if (Session["rol"].Equals("Administrador"))
-                    {
-                        <ul class="nav navbar-nav inis baninis">
-                            <li>@Html.ActionLink("Usuarios", "Index", "Usuarios")</li>
-                            <li>@Html.ActionLink("Inventario", "Index", "Pruebas")</li>
-                            <li>@Html.ActionLink("Cursos", "Index", "Lapices")</li>
-                            <li>@Html.ActionLink("Stock", "Index", "Lapices")</li>
-                            <li>@Html.ActionLink("Informes", "Index", "Lapices")</li>
-                        </ul>
-                    }
-                    if (Session["rol"].Equals("Usuario"))
-                    {
-                        <ul class="nav navbar-nav inis baninis">
-
-                            <li>@Html.ActionLink("Inventario", "Index", "Pruebas")</li>
-                            <li>@Html.ActionLink("Cursos", "Index", "Lapices")</li>
-                            <li>@Html.ActionLink("Stock", "Index", "Lapices")</li>
-                        </ul>
-                    }
-
-                }
-
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-        
-    </div>
-   
-    
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-
-</body>
-</html>
+<h2>Inventario</h2>
 

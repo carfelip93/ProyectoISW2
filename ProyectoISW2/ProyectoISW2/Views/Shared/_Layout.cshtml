@@ -12,14 +12,18 @@
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top inacap">
         
+        
         <div class="container">
+            
             <div class="navbar-header">
+                <h3 class="areacap">Inventario Capacitaciones</h3>
                 
-                <img src="~/Image/logoINACAP.png" class="inalogo" />
+                
                 
             </div>
             <div class="navbar-collapse collapse">
-               
+                <img src="~/Image/logoINACAP.png" class="inalogo" />
+                
                 
                 @Html.Partial("_LoginPartial")
                 
@@ -29,33 +33,54 @@
         
     </div>
     <div class="container body-content altoo">
-        <div class=" ">
+        <div class="container">
 
             <nav class="navbar navbar-default custmenu" role="navigation">
 
                 @if (Session["userId"] == null)
                 {
-                    <ul class="nav navbar-nav"><li class="tinac">Inventario de Capacitaciones</li></ul>
+                    
                 }
                 else
                 {
                     if (Session["rol"].Equals("Administrador"))
                     {
-                        <ul class="nav navbar-nav inis baninis">
+                        <ul class="nav navbar-nav ">
                             <li class="custli">@Html.ActionLink("Usuarios", "Index", "Usuarios")</li>
-                            <li class="custli">@Html.ActionLink("Inventario", "Inventario", "Usuarios")</li>
-                            <li class="custli">@Html.ActionLink("Cursos", "Index", "Lapices")</li>
-                            <li class="custli">@Html.ActionLink("Stock", "Index", "Lapices")</li>
-                            <li class="custli">@Html.ActionLink("Informes", "Index", "Lapices")</li>
+                            <li class="custli">@Html.ActionLink("Cursos", "Index", "Cursos")</li>
+                            <li class="custli">@Html.ActionLink("Stock", "Index", "Stocks")</li>
+                            <li class="dropdown custli">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li class="ddli">@Html.ActionLink("Pruebas", "Index", "Pruebas")</li>
+                                    <li class="ddli">@Html.ActionLink("Manuales", "Index", "Manuales")</li>
+                                    <li class="ddli">@Html.ActionLink("Lapices", "Index", "Lapices")</li>
+                                    <li class="ddli">@Html.ActionLink("Proyectores", "Index", "Proyectores")</li>
+                                    
+                                </ul>
+                            </li>
+                            
+                            
                         </ul>
                     }
                     if (Session["rol"].Equals("Usuario"))
                     {
-                        <ul class="nav navbar-nav inis baninis">
+                        <ul class="nav navbar-nav ">
+                            
+                            <li class="custli">@Html.ActionLink("Cursos", "Index", "Cursos")</li>
+                            <li class="custli">@Html.ActionLink("Stock", "Index", "Stocks")</li>
+                            <li class="dropdown custli">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li class="ddli">@Html.ActionLink("Pruebas", "Index", "Pruebas")</li>
+                                    <li class="ddli">@Html.ActionLink("Manuales", "Index", "Manuales")</li>
+                                    <li class="ddli">@Html.ActionLink("Lapices", "Index", "Lapices")</li>
+                                    <li class="ddli">@Html.ActionLink("Proyectores", "Index", "Proyectores")</li>
 
-                            <li class="custli">@Html.ActionLink("Inventario", "Inventario", "Usuarios")</li>
-                            <li class="custli">@Html.ActionLink("Cursos", "Index", "Lapices")</li>
-                            <li class="custli">@Html.ActionLink("Stock", "Index", "Lapices")</li>
+                                </ul>
+                            </li>
+
+
                         </ul>
                     }
 

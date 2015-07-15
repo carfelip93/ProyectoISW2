@@ -330,7 +330,6 @@
     <Content Include="Views\Lapices\Details.cshtml" />
     <Content Include="Views\Lapices\Edit.cshtml" />
     <Content Include="Views\Lapices\Index.cshtml" />
-    <Content Include="Views\Usuarios\Inventario.cshtml" />
     <Content Include="Views\Pruebas\Create.cshtml" />
     <Content Include="Views\Pruebas\Delete.cshtml" />
     <Content Include="Views\Pruebas\Details.cshtml" />
@@ -356,6 +355,7 @@
     <Content Include="Views\Stocks\Details.cshtml" />
     <Content Include="Views\Stocks\Edit.cshtml" />
     <Content Include="Views\Stocks\Index.cshtml" />
+    <Content Include="Views\Usuarios\Inventario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
