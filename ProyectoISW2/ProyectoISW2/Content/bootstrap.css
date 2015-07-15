@@ -10,11 +10,21 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+.cuscol {
+    background-color:#fff !important;
+}
 .inacap {
     background-color:#a30303 !important;
     height: 85px !important;
     
     
+    
+    
+}
+.altoo {
+    height:100% !important;
+    background-color:#fff;
+    box-shadow: 0 1px 3px 1px #484545;
 }
 .alileft {
     text-align:left !important;
@@ -36,8 +46,13 @@ html {
 @media(min-width:1200px) {
     .formcentro {
         margin-left: 320px !important;
-    }
 
+    }
+    .formcustom {
+        margin-left: 100px !important;
+        margin-right: 100px !important;
+        
+    }
     @media(min-width:1200px) {
         .butmarg {
             margin-left: 357.5px !important;
@@ -55,15 +70,18 @@ html {
         }
 
         .custli {
+            color:#337ab7 !important;
             font-size: 18px !important;
-            padding-left: 9px !important;
-            padding-right: 9px !important;
+            margin:auto;
+            
         }
 
         @media(min-width:780px) {
             .custmenu {
-                width: 500px !important;
-                margin: auto;
+                width:1200px;
+               position:fixed !important;
+               
+                
             }
         }
 
@@ -82,6 +100,7 @@ html {
         body {
             padding-top: 85px !important;
             margin: 0;
+            background-color:#c6c2c2 !important;
         }
 
         article,
@@ -1480,6 +1499,7 @@ html {
             line-height: 1.42857143;
             color: #333;
             background-color: #fff;
+            height:100%;
         }
 
         input,
@@ -2060,6 +2080,9 @@ html {
             padding-left: 15px;
             margin-right: auto;
             margin-left: auto;
+            
+            
+            
         }
 
         @media (min-width: 768px) {
@@ -2077,6 +2100,12 @@ html {
         @media (min-width: 1200px) {
             .container {
                 width: 1230px;
+                
+               
+                
+                
+                
+
             }
         }
 
@@ -5129,6 +5158,7 @@ html {
         .navbar-fixed-top .navbar-collapse,
         .navbar-fixed-bottom .navbar-collapse {
             max-height: 340px;
+            
         }
 
         @media (max-device-width: 480px) and (orientation: landscape) {
@@ -5577,7 +5607,7 @@ html {
 
         .navbar-inverse {
             background-color: #222;
-            border-color: #080808;
+            border-color: #870000;
         }
 
             .navbar-inverse .navbar-brand {

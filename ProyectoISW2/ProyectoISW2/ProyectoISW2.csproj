@@ -227,6 +227,14 @@
     <Compile Include="Migrations\201507131345064_1.Designer.cs">
       <DependentUpon>201507131345064_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507150402582_fnull.cs" />
+    <Compile Include="Migrations\201507150402582_fnull.Designer.cs">
+      <DependentUpon>201507150402582_fnull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507150406066_datenonull.cs" />
+    <Compile Include="Migrations\201507150406066_datenonull.Designer.cs">
+      <DependentUpon>201507150406066_datenonull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Curso.cs" />
@@ -386,6 +394,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201507131345064_1.resx">
       <DependentUpon>201507131345064_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507150402582_fnull.resx">
+      <DependentUpon>201507150402582_fnull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507150406066_datenonull.resx">
+      <DependentUpon>201507150406066_datenonull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

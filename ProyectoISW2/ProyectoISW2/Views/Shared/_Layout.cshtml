@@ -19,6 +19,20 @@
                 
             </div>
             <div class="navbar-collapse collapse">
+               
+                
+                @Html.Partial("_LoginPartial")
+                
+            </div>
+           
+        </div>
+        
+    </div>
+    <div class="container body-content altoo">
+        <div class=" ">
+
+            <nav class="navbar navbar-default custmenu" role="navigation">
+
                 @if (Session["userId"] == null)
                 {
                     <ul class="nav navbar-nav"><li class="tinac">Inventario de Capacitaciones</li></ul>
@@ -28,34 +42,30 @@
                     if (Session["rol"].Equals("Administrador"))
                     {
                         <ul class="nav navbar-nav inis baninis">
-                            <li>@Html.ActionLink("Usuarios", "Index", "Usuarios")</li>
-                            <li>@Html.ActionLink("Inventario", "Inventario", "Usuarios")</li>
-                            <li>@Html.ActionLink("Cursos", "Index", "Lapices")</li>
-                            <li>@Html.ActionLink("Stock", "Index", "Lapices")</li>
-                            <li>@Html.ActionLink("Informes", "Index", "Lapices")</li>
+                            <li class="custli">@Html.ActionLink("Usuarios", "Index", "Usuarios")</li>
+                            <li class="custli">@Html.ActionLink("Inventario", "Inventario", "Usuarios")</li>
+                            <li class="custli">@Html.ActionLink("Cursos", "Index", "Lapices")</li>
+                            <li class="custli">@Html.ActionLink("Stock", "Index", "Lapices")</li>
+                            <li class="custli">@Html.ActionLink("Informes", "Index", "Lapices")</li>
                         </ul>
                     }
                     if (Session["rol"].Equals("Usuario"))
                     {
                         <ul class="nav navbar-nav inis baninis">
-                            
-                            <li>@Html.ActionLink("Inventario", "Inventario", "Usuarios")</li>
-                            <li>@Html.ActionLink("Cursos", "Index", "Lapices")</li>
-                            <li>@Html.ActionLink("Stock", "Index", "Lapices")</li>
+
+                            <li class="custli">@Html.ActionLink("Inventario", "Inventario", "Usuarios")</li>
+                            <li class="custli">@Html.ActionLink("Cursos", "Index", "Lapices")</li>
+                            <li class="custli">@Html.ActionLink("Stock", "Index", "Lapices")</li>
                         </ul>
                     }
 
                 }
-                
-                @Html.Partial("_LoginPartial")
-            </div>
+            </nav>
         </div>
-    </div>
-    <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year - MarmotaSoft ® </p>
         </footer>
     </div>
 

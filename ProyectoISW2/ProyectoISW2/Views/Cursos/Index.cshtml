@@ -4,100 +4,105 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<body>
+    <div class="formcustom form-horizontal">
+        <h2>Cursos</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            N° OT
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </th>
-        <th>
-            Docente
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ubicacion)
-        </th>
-        <th>
-            Prueba
-        </th>
-        <th>
-            N° Pruebas
-        </th>
-        <th>
-            Manual
-        </th>
-        <th>
-            N°Manuales
-        </th>
-        <th>
-            N° Lapices
-        </th>
-        <th>
-            Proyector
-        </th>
-        
-        
-        
-       
-        
-        
-        
-        
-        <th></th>
-    </tr>
+        <p>
+            @Html.ActionLink("Crear Nuevo", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    N° OT
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </th>
+                <th>
+                    Docente
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ubicacion)
+                </th>
+                <th>
+                    Prueba
+                </th>
+                <th>
+                    Cantidad Pruebas
+                </th>
+                <th>
+                    Manual
+                </th>
+                <th>
+                    Cantidad Manuales
+                </th>
+                <th>
+                    Cantidad Lapices
+                </th>
+                <th>
+                    Proyector
+                </th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ot)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Docente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ubicacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Prueba.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CantidadPrueba)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Manual.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CantidadManual)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CantidadLapices)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Proyector.Modelo)
-        </td>
-        
-        
-        
-        
-        
-        
-        
-        
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-           
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
 
-</table>
+
+
+
+
+
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ot)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Docente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ubicacion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prueba.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CantidadPrueba)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Manual.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CantidadManual)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CantidadLapices)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Proyector.Modelo)
+                    </td>
+
+
+
+
+
+
+
+
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id })
+
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>

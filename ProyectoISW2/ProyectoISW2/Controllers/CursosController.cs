@@ -179,11 +179,16 @@ namespace ProyectoISW2.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Ot,Docente,Fecha,Ubicacion,LapicesId,CantidadLapices,PruebaId,CantidadPrueba,ManualId,CantidadManual,ProyectorId")] Curso curso)
+        public ActionResult Edit(DateTime? Fecha,int? Id,[Bind(Include = "Id,Ot,Docente,Fecha,Ubicacion,LapicesId,CantidadLapices,PruebaId,CantidadPrueba,ManualId,CantidadManual,ProyectorId")] Curso curso)
         {
+            
             if (ModelState.IsValid)
             {
+                
                 db.Entry(curso).State = EntityState.Modified;
+                curso.Ot = curso.Ot.ToUpper();
+                curso.Docente = curso.Docente.ToUpper();
+                curso.Ubicacion = curso.Ubicacion.ToUpper();
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

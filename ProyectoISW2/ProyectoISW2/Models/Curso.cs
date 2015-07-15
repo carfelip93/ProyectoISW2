@@ -18,8 +18,9 @@ namespace ProyectoISW2.Models
 
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Fecha { get; set; }
+        
         [Required]
         public string Ubicacion { get; set; }
 
