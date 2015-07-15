@@ -29,10 +29,29 @@ html {
     
 }
 .altoo {
-    height:100% !important;
+    width:1166px !important;
     background-color:#fff;
     box-shadow: 0 1px 3px 1px #484545;
+    bottom:0;
+    position:fixed !important;
+    top:0;
+    margin-left:100px !important;
+    margin-right:100px !important;
+    margin-top:85px;
+  
 }
+
+.ancho {
+    position:absolute;
+    width:1366px;
+}
+.footer2 {
+    bottom:0;
+    position:fixed !important;
+    
+}
+
+
 .alileft {
     text-align:left !important;
 }
