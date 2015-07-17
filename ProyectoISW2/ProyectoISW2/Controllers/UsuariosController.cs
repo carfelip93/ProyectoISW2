@@ -54,14 +54,36 @@ namespace ProyectoISW2.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nombre,Contraseña,Rol")] Usuario usuario)
+        public ActionResult Create(string User, [Bind(Include = "Id,,User,Nombre,Apellido,Contraseña,Rol")] Usuario usuario)
         {
-            if (ModelState.IsValid)
+            using (var db = new ProyectoISW2Context())
             {
-                db.Usuarios.Add(usuario);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var query = (from u in db.Usuarios
+                             where u.User == User
+                             select u);
+                // 
+
+
+                if (query.Count() > 0 && query != null)
+                {
+                    
+                        ViewBag.MyErrorMessage = "Error";
+                        string x = ViewBag.MyErrorMessage;
+                    
+                    
+
+                }
+                else
+                {
+                    if (ModelState.IsValid)
+                    {
+                        db.Usuarios.Add(usuario);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                }
             }
+            
 
             return View(usuario);
         }
@@ -86,7 +108,7 @@ namespace ProyectoISW2.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nombre,Contraseña,Rol")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "Id,User,Nombre,Apellido,Contraseña,Rol")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -131,16 +153,23 @@ namespace ProyectoISW2.Controllers
             }
             base.Dispose(disposing);
         }
-        public ActionResult Login(string Nombre, string Contraseña)
-        {
-            ViewBag.Nombre = Nombre;
-            ViewBag.Contraseña = Contraseña;
 
+
+
+
+        public ActionResult Login(string User, string Contraseña)
+        {
+            ViewBag.User = User;
+            ViewBag.Contraseña = Contraseña;
+            if (Session["userId"] != null)
+            {
+                return Redirect("/Usuarios/Inventario");
+            }
 
             using (var db = new ProyectoISW2Context())
             {
                 var query = (from u in db.Usuarios
-                             where u.Nombre == Nombre
+                             where u.User == User
                              select u);
                 // 
 
@@ -151,29 +180,33 @@ namespace ProyectoISW2.Controllers
 
 
 
-                    if (Contraseña.Equals(myUser.Contraseña))
+                    if (Contraseña!= myUser.Contraseña)
+                    {
+                        ViewBag.MyErrorMessage = "Error";
+                        string x = ViewBag.MyErrorMessage;
+                        return View();
+                        
+                    }
+                    else
                     {
                         Session.Add("userId", myUser.Id);
                         Session.Add("username", myUser.Nombre);
                         Session.Add("rol", myUser.Rol);
                         return Redirect("/Home/");
                     }
-                    else
-                    {
-                        ViewBag.Message = "Usuario o Contraseña incorrecta";
-                        //ViewBag.LabelError = "Error al ingresar datos";
-                        return View();
-                    }
 
 
                 }
                 else
                 {
+
                     
-                    //ViewBag.LabelError = "Error al ingresar datos";
                     return View();
                 }
             }
         }
+        //
+        
+           
     }
 }

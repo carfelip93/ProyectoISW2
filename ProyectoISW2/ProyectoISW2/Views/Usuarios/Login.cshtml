@@ -1,21 +1,30 @@
 ﻿@model ProyectoISW2.Models.Usuario
 @{
     ViewBag.Title = "Login";
-    string Nombre = ViewBag.Nombre;
+    string User = ViewBag.User;
     string Contraseña = ViewBag.Contraseña;
 }
-
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI Dialog - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
+</head>
 <h2>Inicio de Sesión</h2>
-@using (Html.BeginForm("Login", "Usuarios", FormMethod.Post))
+@using (Html.BeginForm())
 {
+    @Html.AntiForgeryToken()
     <div class="form-horizontal">
         
         <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group formcentro ">
-            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.User, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", placeholder = "Ej: cvel2015" } })
-                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.User, new { htmlAttributes = new { @class = "form-control", placeholder = "Ej: cvel2015"} })
+                @Html.ValidationMessageFor(model => model.User, "", new { @class = "text-danger" })
             </div>
         </div>
         @Html.Label(" ")
@@ -35,4 +44,47 @@
             </div>
         </div>
     </div>
+    if (ViewBag.MyErrorMessage != null)
+    {
+        string x = ViewBag.MyErrorMessage;
+
+        if (x.Equals("Error"))
+        {
+            <script  type="text/javascript">
+                    $(document).ready(function () {
+                        $('#myModal').modal({
+                            show: true,
+                            
+                        })
+                        
+                    });
+            </script>
+        }
+    }
+    
+
+     <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Error al Iniciar Sesion</h4>
+                </div>
+                <div class="modal-body alert-danger text-center">
+                    <h3 id="#lbl1">Usuario y/o Contraseña incorrecta</h3>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+     
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }

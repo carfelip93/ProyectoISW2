@@ -243,6 +243,14 @@
     <Compile Include="Migrations\201507162353430_newstock.Designer.cs">
       <DependentUpon>201507162353430_newstock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507170445262_usuario.cs" />
+    <Compile Include="Migrations\201507170445262_usuario.Designer.cs">
+      <DependentUpon>201507170445262_usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507172238316_usr.cs" />
+    <Compile Include="Migrations\201507172238316_usr.Designer.cs">
+      <DependentUpon>201507172238316_usr.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Curso.cs" />
@@ -414,6 +422,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201507162353430_newstock.resx">
       <DependentUpon>201507162353430_newstock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507170445262_usuario.resx">
+      <DependentUpon>201507170445262_usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507172238316_usr.resx">
+      <DependentUpon>201507172238316_usr.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
