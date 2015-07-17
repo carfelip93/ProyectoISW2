@@ -235,6 +235,14 @@
     <Compile Include="Migrations\201507150406066_datenonull.Designer.cs">
       <DependentUpon>201507150406066_datenonull.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507162343234_estocks.cs" />
+    <Compile Include="Migrations\201507162343234_estocks.Designer.cs">
+      <DependentUpon>201507162343234_estocks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507162353430_newstock.cs" />
+    <Compile Include="Migrations\201507162353430_newstock.Designer.cs">
+      <DependentUpon>201507162353430_newstock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Curso.cs" />
@@ -350,12 +358,12 @@
     <Content Include="Views\Cursos\Details.cshtml" />
     <Content Include="Views\Cursos\Edit.cshtml" />
     <Content Include="Views\Cursos\Index.cshtml" />
+    <Content Include="Views\Usuarios\Inventario.cshtml" />
     <Content Include="Views\Stocks\Create.cshtml" />
     <Content Include="Views\Stocks\Delete.cshtml" />
     <Content Include="Views\Stocks\Details.cshtml" />
     <Content Include="Views\Stocks\Edit.cshtml" />
     <Content Include="Views\Stocks\Index.cshtml" />
-    <Content Include="Views\Usuarios\Inventario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -400,6 +408,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201507150406066_datenonull.resx">
       <DependentUpon>201507150406066_datenonull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507162343234_estocks.resx">
+      <DependentUpon>201507162343234_estocks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507162353430_newstock.resx">
+      <DependentUpon>201507162353430_newstock.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

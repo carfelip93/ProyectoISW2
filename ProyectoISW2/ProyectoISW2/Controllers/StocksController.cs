@@ -50,9 +50,8 @@ namespace ProyectoISW2.Controllers
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create(int? CantidadLapices, int LapicesId, int? CantidadPrueba, int PruebaId, int? CantidadManual, int ManualId,
-            [Bind(Include = "Id,LapicesId,CantidadLapices,PruebaId,CantidadPrueba,ManualId,CantidadManual")] Stock stock)
+        [Bind(Include = "Id,LapicesId,CantidadLapices,PruebaId,CantidadPrueba,ManualId,CantidadManual")] Stock stock)
         {
             
            
@@ -135,10 +134,25 @@ namespace ProyectoISW2.Controllers
                         }
                     }
                 }
-            
-            
 
+            ViewBag.LapicesId = new SelectList(db.Lapices, "Id", "Id", stock.LapicesId);
+            ViewBag.ManualId = new SelectList(db.Manuals, "Id", "Nombre", stock.ManualId);
+            ViewBag.PruebaId = new SelectList(db.Pruebas, "Id", "Nombre", stock.PruebaId);
+            return View(stock);
+        }
 
+        // GET: Stocks/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Stock stock = db.Stocks.Find(id);
+            if (stock == null)
+            {
+                return HttpNotFound();
+            }
             ViewBag.LapicesId = new SelectList(db.Lapices, "Id", "Id", stock.LapicesId);
             ViewBag.ManualId = new SelectList(db.Manuals, "Id", "Nombre", stock.ManualId);
             ViewBag.PruebaId = new SelectList(db.Pruebas, "Id", "Nombre", stock.PruebaId);

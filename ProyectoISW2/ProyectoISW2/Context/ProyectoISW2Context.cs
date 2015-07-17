@@ -22,6 +22,8 @@ namespace ProyectoISW2.Context
 
         public System.Data.Entity.DbSet<ProyectoISW2.Models.Stock> Stocks { get; set; }
 
+     
+
         
     }
 }

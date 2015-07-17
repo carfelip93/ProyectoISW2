@@ -11,95 +11,101 @@
 
     </head>
     <body>
-        <div class="navbar navbar-inverse navbar-fixed-top inacap">
+        
+            <div class="navbar navbar-inverse navbar-fixed-top inacap">
 
 
-            <div class="container">
+                <div class="container">
 
-                <div class="navbar-header">
-                    <h3 class="areacap">Inventario Capacitaciones</h3>
-                    
-                    
+                    <div class="navbar-header">
+                        <h3 class="areacap">Inventario Capacitaciones</h3>
+
+                        <img src="~/Image/logoINACAP.png" class="inalogo" />
 
 
-                </div>
-                <div class="navbar-collapse collapse">
-                    <img src="~/Image/logoINACAP.png" class="inalogo" />
-                    
-                    @Html.Partial("_LoginPartial")
 
-                    
+
+                    </div>
+                    <div class="navbar-collapse collapse">
+
+                        @Html.Partial("_LoginPartial")
+
+
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
-        <div class="container body-content altoo">
-            <div>
+            
+                    <div class="container body-content altoo">
+                        <nav class="navbar navbar-default custmenu" role="navigation">
 
-                <nav class="navbar navbar-default custmenu" role="navigation">
+                            @if (Session["userId"] == null)
+                            {
 
-                    @if (Session["userId"] == null)
-                    {
+                            }
+                            else
+                            {
+                                if (Session["rol"].Equals("Administrador"))
+                                {
+                                    <ul class="nav navbar-nav ">
+                                        <li class="custli">@Html.ActionLink("Usuarios", "Index", "Usuarios")</li>
+                                        <li class="custli">@Html.ActionLink("Cursos", "Index", "Cursos")</li>
+                                        <li class="custli">@Html.ActionLink("Stock", "Index", "Stocks")</li>
+                                        <li class="dropdown custli">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li class="ddli">@Html.ActionLink("Pruebas", "Index", "Pruebas")</li>
+                                                <li class="ddli">@Html.ActionLink("Manuales", "Index", "Manuales")</li>
+                                                <li class="ddli">@Html.ActionLink("Lapices", "Index", "Lapices")</li>
+                                                <li class="ddli">@Html.ActionLink("Proyectores", "Index", "Proyectores")</li>
 
-                    }
-                    else
-                    {
-                        if (Session["rol"].Equals("Administrador"))
-                        {
-                            <ul class="nav navbar-nav ">
-                                <li class="custli">@Html.ActionLink("Usuarios", "Index", "Usuarios")</li>
-                                <li class="custli">@Html.ActionLink("Cursos", "Index", "Cursos")</li>
-                                <li class="custli">@Html.ActionLink("Stock", "Index", "Stocks")</li>
-                                <li class="dropdown custli">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li class="ddli">@Html.ActionLink("Pruebas", "Index", "Pruebas")</li>
-                                        <li class="ddli">@Html.ActionLink("Manuales", "Index", "Manuales")</li>
-                                        <li class="ddli">@Html.ActionLink("Lapices", "Index", "Lapices")</li>
-                                        <li class="ddli">@Html.ActionLink("Proyectores", "Index", "Proyectores")</li>
+                                            </ul>
+                                        </li>
+
 
                                     </ul>
-                                </li>
+                                }
+                                if (Session["rol"].Equals("Usuario"))
+                                {
+                                    <ul class="nav navbar-nav ">
 
+                                        <li class="custli">@Html.ActionLink("Cursos", "Index", "Cursos")</li>
+                                        <li class="custli">@Html.ActionLink("Stock", "Index", "Stocks")</li>
+                                        <li class="dropdown custli">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li class="ddli">@Html.ActionLink("Pruebas", "Index", "Pruebas")</li>
+                                                <li class="ddli">@Html.ActionLink("Manuales", "Index", "Manuales")</li>
+                                                <li class="ddli">@Html.ActionLink("Lapices", "Index", "Lapices")</li>
+                                                <li class="ddli">@Html.ActionLink("Proyectores", "Index", "Proyectores")</li>
 
-                            </ul>
-                        }
-                        if (Session["rol"].Equals("Usuario"))
-                        {
-                            <ul class="nav navbar-nav ">
+                                            </ul>
+                                        </li>
 
-                                <li class="custli">@Html.ActionLink("Cursos", "Index", "Cursos")</li>
-                                <li class="custli">@Html.ActionLink("Stock", "Index", "Stocks")</li>
-                                <li class="dropdown custli">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li class="ddli">@Html.ActionLink("Pruebas", "Index", "Pruebas")</li>
-                                        <li class="ddli">@Html.ActionLink("Manuales", "Index", "Manuales")</li>
-                                        <li class="ddli">@Html.ActionLink("Lapices", "Index", "Lapices")</li>
-                                        <li class="ddli">@Html.ActionLink("Proyectores", "Index", "Proyectores")</li>
 
                                     </ul>
-                                </li>
+                                }
+
+                            }
+                        </nav>
 
 
-                            </ul>
-                        }
+                        
+                        @RenderBody()
+                        
+                    </div>
+                    
+               
+        <hr />
+        <footer class="footer2">
+            <p>&copy; @DateTime.Now.Year - MarmotaSoft ® </p>
+        </footer>
 
-                    }
-                </nav>
-            </div>
-            @RenderBody()
-            <hr />
-            <footer class="footer2">
-                <p>&copy; @DateTime.Now.Year - MarmotaSoft ® </p>
-            </footer>
-        </div>
-
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-    </body>
+                @Scripts.Render("~/bundles/jquery")
+                @Scripts.Render("~/bundles/bootstrap")
+                @RenderSection("scripts", required: false)
+</body>
 
 </html>
