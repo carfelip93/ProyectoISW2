@@ -11,8 +11,15 @@ namespace ProyectoISW2.Models
     {
         [Key]
         public int Id { get; set; }
+
+        [Display(Name = "OT")]
+        [StringLength(20, ErrorMessage =
+            "El identificador OT debe tener un maximo de 20 caracteres de longitud.")]
         [Required]
         public string Ot { get; set; }
+
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage =
+            "Los números y caracteres especiales no están permitidos en el docente.")]
         [Required]
         public string Docente { get; set; }
 
@@ -28,21 +35,27 @@ namespace ProyectoISW2.Models
         [ForeignKey("LapicesId")]
         public virtual Lapices Lapices { get; set; }
 
-        [Required(ErrorMessage = "El campo Cantidad de Lapices es obligatorio.")]
+        [Range(1, 10000, ErrorMessage = "Valor de 1 a 10000")]
+        [Display(Name = "Cantidad Lapices")]
+        [Required]
         public int CantidadLapices { get; set; }
 
         public int PruebaId { get; set; }
         [ForeignKey("PruebaId")]
         public virtual Prueba Prueba { get; set; }
 
-        [Required(ErrorMessage = "El campo Cantidad de Pruebas es obligatorio.")]
+        [Range(1, 10000, ErrorMessage = "Valor de 1 a 10000")]
+        [Display(Name = "Cantidad Pruebas")]
+        [Required]
         public int CantidadPrueba { get; set; }
 
         public int ManualId { get; set; }
         [ForeignKey("ManualId")]
         public virtual Manual Manual { get; set; }
 
-        [Required(ErrorMessage = "El campo Cantidad de Manuales es obligatorio.")]
+        [Range(1, 10000, ErrorMessage = "Valor de 1 a 10000")]
+        [Display(Name = "Cantidad Pruebas")]
+        [Required]
         public int CantidadManual { get; set; }
 
         public int ProyectorId { get; set; }

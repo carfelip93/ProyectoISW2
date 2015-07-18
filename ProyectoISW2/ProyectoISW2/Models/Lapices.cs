@@ -10,7 +10,9 @@ namespace ProyectoISW2.Models
     {
         [Key]
         public int Id { get; set; }
-        
+
+        [Range(1, 10000, ErrorMessage = "Valor de 1 a 10000")]
+        [Required]
         public int Cantidad { get; set; }
     }
 }
