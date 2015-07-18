@@ -77,6 +77,9 @@ namespace ProyectoISW2.Controllers
                 {
                     if (ModelState.IsValid)
                     {
+                        usuario.Nombre= usuario.Nombre.ToUpper();
+                        usuario.Apellido = usuario.Apellido.ToUpper();
+                        usuario.Rol = usuario.Rol.ToUpper();
                         db.Usuarios.Add(usuario);
                         db.SaveChanges();
                         return RedirectToAction("Index");
@@ -113,6 +116,9 @@ namespace ProyectoISW2.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(usuario).State = EntityState.Modified;
+                usuario.Nombre = usuario.Nombre.ToUpper();
+                usuario.Apellido = usuario.Apellido.ToUpper();
+                usuario.Rol = usuario.Rol.ToUpper();
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -155,8 +161,11 @@ namespace ProyectoISW2.Controllers
         }
 
 
-
-
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
         public ActionResult Login(string User, string Contraseña)
         {
             ViewBag.User = User;
@@ -165,7 +174,6 @@ namespace ProyectoISW2.Controllers
             {
                 return Redirect("/Usuarios/Inventario");
             }
-
             using (var db = new ProyectoISW2Context())
             {
                 var query = (from u in db.Usuarios
@@ -173,40 +181,58 @@ namespace ProyectoISW2.Controllers
                              select u);
                 // 
 
+                
 
                 if (query.Count() > 0 && query != null)
                 {
                     Usuario myUser = query.First();
 
 
-
-                    if (Contraseña!= myUser.Contraseña)
-                    {
-                        ViewBag.MyErrorMessage = "Error";
-                        string x = ViewBag.MyErrorMessage;
-                        return View();
-                        
-                    }
-                    else
+                    if (Contraseña == myUser.Contraseña && User == myUser.User)
                     {
                         Session.Add("userId", myUser.Id);
                         Session.Add("username", myUser.Nombre);
                         Session.Add("rol", myUser.Rol);
                         return Redirect("/Home/");
                     }
+                    else
+                    {
+                        ViewBag.MyErrorMessage = "Error";
+                        string x = ViewBag.MyErrorMessage;
+                        return View();
+                    }
+                    
+                    
+                    
 
 
                 }
                 else
                 {
+                    ViewBag.MyErrorMessage = "Error";
+                    string x = ViewBag.MyErrorMessage;
+                    return View();
+                    
+                    
+                }
+            }
+        }
+                    
+                    
+                
+                
+                    
+
 
                     
-                    return View();
-                }
+                    
+                    
+                    
+
+
+                
             }
         }
         //
         
            
-    }
-}
