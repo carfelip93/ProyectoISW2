@@ -51,6 +51,8 @@ namespace ProyectoISW2.Controllers
         {
             if (ModelState.IsValid)
             {
+                manual.Nombre = manual.Nombre.ToUpper();
+                manual.Seccion = manual.Seccion.ToUpper();
                 db.Manuals.Add(manual);
                 db.SaveChanges();
                 return RedirectToAction("Index");

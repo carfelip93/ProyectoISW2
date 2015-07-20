@@ -177,12 +177,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CursosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InventarioController.cs" />
     <Compile Include="Controllers\LapicesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManualesController.cs" />
     <Compile Include="Controllers\ProyectoresController.cs" />
     <Compile Include="Controllers\PruebasController.cs" />
-    <Compile Include="Controllers\StocksController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -255,16 +255,48 @@
     <Compile Include="Migrations\201507180420389_val.Designer.cs">
       <DependentUpon>201507180420389_val.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507180451509_valud.cs" />
+    <Compile Include="Migrations\201507180451509_valud.Designer.cs">
+      <DependentUpon>201507180451509_valud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507180458281_x.cs" />
+    <Compile Include="Migrations\201507180458281_x.Designer.cs">
+      <DependentUpon>201507180458281_x.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507180556208_a.cs" />
+    <Compile Include="Migrations\201507180556208_a.Designer.cs">
+      <DependentUpon>201507180556208_a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507181750307_valp.cs" />
+    <Compile Include="Migrations\201507181750307_valp.Designer.cs">
+      <DependentUpon>201507181750307_valp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507191759387_cust.cs" />
+    <Compile Include="Migrations\201507191759387_cust.Designer.cs">
+      <DependentUpon>201507191759387_cust.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507191856432_lst.cs" />
+    <Compile Include="Migrations\201507191856432_lst.Designer.cs">
+      <DependentUpon>201507191856432_lst.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507192008444_x1.cs" />
+    <Compile Include="Migrations\201507192008444_x1.Designer.cs">
+      <DependentUpon>201507192008444_x1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507192010544_inventario.cs" />
+    <Compile Include="Migrations\201507192010544_inventario.Designer.cs">
+      <DependentUpon>201507192010544_inventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Curso.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Inventario.cs" />
     <Compile Include="Models\Lapices.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Manual.cs" />
     <Compile Include="Models\Proyector.cs" />
     <Compile Include="Models\Prueba.cs" />
-    <Compile Include="Models\Stock.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -274,6 +306,39 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -293,6 +358,10 @@
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -371,11 +440,9 @@
     <Content Include="Views\Cursos\Edit.cshtml" />
     <Content Include="Views\Cursos\Index.cshtml" />
     <Content Include="Views\Usuarios\Inventario.cshtml" />
-    <Content Include="Views\Stocks\Create.cshtml" />
-    <Content Include="Views\Stocks\Delete.cshtml" />
-    <Content Include="Views\Stocks\Details.cshtml" />
-    <Content Include="Views\Stocks\Edit.cshtml" />
-    <Content Include="Views\Stocks\Index.cshtml" />
+    <Content Include="Views\Inventario\index.cshtml" />
+    <Content Include="Views\Inventario\Listado.cshtml" />
+    <Content Include="Scripts\kendo.all.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -435,6 +502,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201507180420389_val.resx">
       <DependentUpon>201507180420389_val.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507180451509_valud.resx">
+      <DependentUpon>201507180451509_valud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507180458281_x.resx">
+      <DependentUpon>201507180458281_x.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507180556208_a.resx">
+      <DependentUpon>201507180556208_a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507181750307_valp.resx">
+      <DependentUpon>201507181750307_valp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507191759387_cust.resx">
+      <DependentUpon>201507191759387_cust.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507191856432_lst.resx">
+      <DependentUpon>201507191856432_lst.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507192008444_x1.resx">
+      <DependentUpon>201507192008444_x1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507192010544_inventario.resx">
+      <DependentUpon>201507192010544_inventario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

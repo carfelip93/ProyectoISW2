@@ -31,33 +31,37 @@ namespace ProyectoISW2.Models
         [Required]
         public string Ubicacion { get; set; }
 
+        [Display(Name = "Cantidad Lapices")]
         public int LapicesId { get; set; }
         [ForeignKey("LapicesId")]
         public virtual Lapices Lapices { get; set; }
 
-        [Range(1, 10000, ErrorMessage = "Valor de 1 a 10000")]
+        [Range(0, 10000, ErrorMessage = "Valor de 0 a 10000")]
         [Display(Name = "Cantidad Lapices")]
         [Required]
         public int CantidadLapices { get; set; }
 
+        [Display(Name = "Pruebas")]
         public int PruebaId { get; set; }
         [ForeignKey("PruebaId")]
         public virtual Prueba Prueba { get; set; }
 
-        [Range(1, 10000, ErrorMessage = "Valor de 1 a 10000")]
+        [Range(0, 10000, ErrorMessage = "Valor de 0 a 10000")]
         [Display(Name = "Cantidad Pruebas")]
         [Required]
         public int CantidadPrueba { get; set; }
 
+        [Display(Name = "Manual")]
         public int ManualId { get; set; }
         [ForeignKey("ManualId")]
         public virtual Manual Manual { get; set; }
 
-        [Range(1, 10000, ErrorMessage = "Valor de 1 a 10000")]
-        [Display(Name = "Cantidad Pruebas")]
+        [Range(0, 10000, ErrorMessage = "Valor de 0 a 10000")]
+        [Display(Name = "Cantidad Manuales")]
         [Required]
         public int CantidadManual { get; set; }
 
+        [Display(Name = "Proyector")]
         public int ProyectorId { get; set; }
         [ForeignKey("ProyectorId")]
         public virtual Proyector Proyector { get; set; }

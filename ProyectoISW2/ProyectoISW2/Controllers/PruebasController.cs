@@ -51,6 +51,8 @@ namespace ProyectoISW2.Controllers
         {
             if (ModelState.IsValid)
             {
+                prueba.Nombre = prueba.Nombre.ToUpper();
+                prueba.Seccion = prueba.Seccion.ToUpper();
                 db.Pruebas.Add(prueba);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -124,5 +126,31 @@ namespace ProyectoISW2.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [HttpPost]
+        public JsonResult GetManufacturers()
+        {
+            ProyectoISW2Context db = new ProyectoISW2Context();
+            string searchValue = Request.Params["filter[filters][0][value]"];
+            IList<Prueba> pruebas = BuildManufacturersList()
+                .Where(x => x.Nombre.StartsWith(searchValue, StringComparison.InvariantCultureIgnoreCase)).ToList();
+            return Json(pruebas);
+        }
+
+        private IList<Prueba> BuildManufacturersList()
+        {
+            IList<Prueba> pruebas = new List<Prueba>();
+            ProyectoISW2Context db = new ProyectoISW2Context();
+            var query = (from p in db.Pruebas
+
+                         select p).ToList();
+            foreach (Prueba prueba in query)
+            {
+                pruebas.Add(prueba);
+            }
+
+            return pruebas;
+        } 
+       
     }
 }

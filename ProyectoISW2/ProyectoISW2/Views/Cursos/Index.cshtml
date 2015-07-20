@@ -5,7 +5,7 @@
 }
 
 <body>
-    <div class="formcustom form-horizontal">
+    <div class="form-horizontal">
         <h3>Cursos</h3>
 
         <p>
@@ -14,7 +14,7 @@
         <table class="table">
             <tr>
                 <th>
-                    N° OT
+                   @Html.DisplayNameFor(model => model.Ot)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Fecha)
@@ -35,10 +35,10 @@
                     Manual
                 </th>
                 <th>
-                    Cantidad Manuales
+                    Cantidad  Manuales
                 </th>
                 <th>
-                    Cantidad Lapices
+                    Cantidad  Lapices
                 </th>
                 <th>
                     Proyector

@@ -11,8 +11,7 @@ namespace ProyectoISW2.Models
         [Key]
         public int Id { get; set; }
 
-        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage =
-            "Los números y caracteres especiales no están permitidos en el modelo.")]
+        
         [StringLength(50, ErrorMessage =
             "El modelo debe tener un maximo de 50 caracteres de longitud.")]
         [Required]

@@ -1,0 +1,69 @@
+﻿@model  ProyectoISW2.Models.Inventario
+@{
+    ViewBag.Title = "Inventario";
+   
+}
+<script type="text/javascript">
+        $(document).ready(function () {
+               $("#Name").kendoAutoComplete({
+                        minLength: 1,
+                       dataTextField: "Nombre",
+                     suggest: true,
+                       filter: "startswith",
+                      dataSource: { serverFiltering: true,  transport: {read: {url: "/Inventario/GetManufacturers/",dataType: "json", type: "POST"}}}
+                 });
+         });
+     </script>
+<h2>Inventario</h2>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+@using (Ajax.BeginForm("Filtrar", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "listado" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Filtro</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.NombrePrueba, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.NombrePrueba, new { htmlAttributes = new { @class = "form-control" , id="#Name"} })
+                @Html.ValidationMessageFor(model => model.NombrePrueba, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Filtrar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@* elemento a actualizar con AJAX *@
+<div id="listado">
+    @* acá se renderizará un partial view pasándole la colección dentro del modelo y no el modelo completo *@
+
+    @{
+        Html.RenderPartial("Listado", Model.ListaDePruebas);
+    }
+</div>
+
+
+@* es importante tener los scripts para que el ejemplo funcione *@
+<script src="~/Scripts/jquery-ui-1.11.4.min.js"></script>
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="@Url.Content("~/Scripts/bootstrap-typeahead.js")"></script>
+<link rel="stylesheet" href="styles/kendo.common.min.css" />
+<link rel="stylesheet" href="styles/kendo.default.min.css" />
+
+<script src="js/jquery.min.js"></script>
+<script src="js/kendo.all.min.js"></script>

@@ -47,7 +47,7 @@
 
 
 
-            @if (Session["rol"].Equals("Administrador"))
+            @if (Session["rol"].Equals("ADMINISTRADOR"))
             {
             <ul class="nav navbar-nav ">
                 <li class="custli">@Html.ActionLink("Usuarios", "Index", "Usuarios")</li>
@@ -67,7 +67,7 @@
 
             </ul>
             }
-            @if (Session["rol"].Equals("Usuario"))
+            @if (Session["rol"].Equals("USUARIO"))
             {
             <ul class="nav navbar-nav ">
 

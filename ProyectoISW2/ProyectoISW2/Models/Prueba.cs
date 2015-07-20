@@ -12,8 +12,7 @@ namespace ProyectoISW2.Models
         public int Id { get; set; }
 
         [Display(Name = "Nombre Prueba")]
-        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage =
-            "Los números y caracteres especiales no están permitidos en el nombre.")]
+        
         [StringLength(50, ErrorMessage =
             "El nombre debe tener un maximo de 50 caracteres de longitud.")]
         [Required]
@@ -25,7 +24,6 @@ namespace ProyectoISW2.Models
 
         [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage =
             "Los números y caracteres especiales no están permitidos en la seccion.")]
-        
         [Required]
         public string Seccion { get; set; }
     }
