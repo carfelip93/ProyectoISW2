@@ -14,23 +14,12 @@
         
             <div class="navbar-inverse  inacap">
                 <img src="~/Image/logoINACAP.png" class="inalogo" />
-                
                 <span class="areacap">Inventario Capacitaciones</span>
-               
-    
-
-    <div class="container">
-       
-        <div class="navbar-header">
+                 <div class="container inacap">
+                     <div class="navbar-header">
             
-
-
-
-
-
-
-        </div>
-        <div class="navbar-collapse collapse">
+                     </div>
+                 <div class="navbar-collapse collapse inacap">
             @Html.Partial("_LoginPartial")
 
 
@@ -58,12 +47,11 @@
                 <li class="custli">@Html.ActionLink("Cursos", "Index", "Cursos")</li>
                 <li class="custli">@Html.ActionLink("Agregar Stock", "Index", "Inventario")</li>
                 <li class="dropdown custli">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nuevo <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li class="ddli">@Html.ActionLink("Pruebas", "Index", "Pruebas")</li>
-                        <li class="ddli">@Html.ActionLink("Manuales", "Index", "Manuales")</li>
-                        <li class="ddli">@Html.ActionLink("Lapices", "Index", "Lapices")</li>
-                        <li class="ddli">@Html.ActionLink("Proyectores", "Index", "Proyectores")</li>
+                        <li class="ddli">@Html.ActionLink("Pruebas", "Create", "Pruebas")</li>
+                        <li class="ddli">@Html.ActionLink("Manuales", "Create", "Manuales")</li>
+                        <li class="ddli">@Html.ActionLink("Proyectores", "Create", "Proyectores")</li>
 
                     </ul>
                 </li>
@@ -78,12 +66,12 @@
                 <li class="custli">@Html.ActionLink("Cursos", "Index", "Cursos")</li>
                 <li class="custli">@Html.ActionLink("Agregar Stock", "Index", "Inventario")</li>
                 <li class="dropdown custli">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nuevo <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li class="ddli">@Html.ActionLink("Pruebas", "Index", "Pruebas")</li>
-                        <li class="ddli">@Html.ActionLink("Manuales", "Index", "Manuales")</li>
-                        <li class="ddli">@Html.ActionLink("Lapices", "Index", "Lapices")</li>
-                        <li class="ddli">@Html.ActionLink("Proyectores", "Index", "Proyectores")</li>
+                        <li class="ddli">@Html.ActionLink("Pruebas", "Create", "Pruebas")</li>
+                        <li class="ddli">@Html.ActionLink("Manuales", "Create", "Manuales")</li>
+                        
+                        <li class="ddli">@Html.ActionLink("Proyectores", "Create", "Proyectores")</li>
 
                     </ul>
                 </li>

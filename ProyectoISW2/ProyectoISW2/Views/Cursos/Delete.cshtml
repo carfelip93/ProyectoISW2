@@ -4,12 +4,11 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Curso</h4>
-    <hr />
+
+
+<h3 class="text-center">¿Esta seguro que desea eliminar el curso con OT @Html.DisplayFor(model => model.Ot)?</h3><div class="formchi">
+
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Lapices.Id)
@@ -100,12 +99,13 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+    <div class="form-actions no-color butchi">
+        <input type="submit" value="Eliminar" class="btn btn-default" /> |
+        @Html.ActionLink("Volver a la lista", "Index")
+    </div>
     }
 </div>

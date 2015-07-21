@@ -19,18 +19,42 @@ namespace ProyectoISW2.Controllers
       
         public ActionResult Inventario()
         {
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             return View();
         }
         
         // GET: Usuarios
         public ActionResult Index()
         {
+            string rol;
+            rol = Convert.ToString(Session["rol"]);
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
+            if (rol != ("ADMINISTRADOR"))
+            {
+                return Redirect("/Usuarios/Inventario");
+            }
             return View(db.Usuarios.ToList());
         }
 
         // GET: Usuarios/Details/5
         public ActionResult Details(int? id)
         {
+            string rol;
+            rol = Convert.ToString(Session["rol"]);
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
+            if (rol != ("ADMINISTRADOR"))
+            {
+                return Redirect("/Usuarios/Inventario");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -46,6 +70,16 @@ namespace ProyectoISW2.Controllers
         // GET: Usuarios/Create
         public ActionResult Create()
         {
+            string rol;
+            rol = Convert.ToString(Session["rol"]);
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
+            if (rol != ("ADMINISTRADOR"))
+            {
+                return Redirect("/Usuarios/Inventario");
+            }
             return View();
         }
 
@@ -56,6 +90,16 @@ namespace ProyectoISW2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(string User, [Bind(Include = "Id,,User,Nombre,Apellido,Contraseña,Rol")] Usuario usuario)
         {
+            string rol;
+            rol = Convert.ToString(Session["rol"]);
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
+            if (rol != ("ADMINISTRADOR"))
+            {
+                return Redirect("/Usuarios/Inventario");
+            }
             using (var db = new ProyectoISW2Context())
             {
                 var query = (from u in db.Usuarios
@@ -94,6 +138,18 @@ namespace ProyectoISW2.Controllers
         // GET: Usuarios/Edit/5
         public ActionResult Edit(int? id)
         {
+
+
+            string rol;
+            rol = Convert.ToString(Session["rol"]);
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
+            if (rol != ("ADMINISTRADOR"))
+            {
+                return Redirect("/Usuarios/Inventario");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -113,6 +169,16 @@ namespace ProyectoISW2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,User,Nombre,Apellido,Contraseña,Rol")] Usuario usuario)
         {
+            string rol;
+            rol = Convert.ToString(Session["rol"]);
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
+            if (rol != ("ADMINISTRADOR"))
+            {
+                return Redirect("/Usuarios/Inventario");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(usuario).State = EntityState.Modified;
@@ -128,6 +194,17 @@ namespace ProyectoISW2.Controllers
         // GET: Usuarios/Delete/5
         public ActionResult Delete(int? id)
         {
+
+            string rol;
+            rol = Convert.ToString(Session["rol"]);
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
+            if (rol != ("ADMINISTRADOR"))
+            {
+                return Redirect("/Usuarios/Inventario");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -145,6 +222,17 @@ namespace ProyectoISW2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+
+            string rol;
+            rol = Convert.ToString(Session["rol"]);
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
+            if (rol != ("ADMINISTRADOR"))
+            {
+                return Redirect("/Usuarios/Inventario");
+            }
             Usuario usuario = db.Usuarios.Find(id);
             db.Usuarios.Remove(usuario);
             db.SaveChanges();
@@ -163,7 +251,14 @@ namespace ProyectoISW2.Controllers
 
         public ActionResult Login()
         {
-            return View();
+            if (Session["userId"] != null)
+            {
+                return Redirect("/Usuarios/Inventario");
+            }
+            else {
+                return View();
+            }
+            
         }
         [HttpPost]
         public ActionResult Login(string User, string Contraseña)

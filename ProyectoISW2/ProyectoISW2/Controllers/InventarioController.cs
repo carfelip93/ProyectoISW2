@@ -16,6 +16,11 @@ namespace ProyectoISW2.Controllers
         // GET: Inventario
         public ActionResult Index(Inventario viewmodel)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             ProyectoISW2Context db = new ProyectoISW2Context();
             ViewBag.PruebaId = new SelectList(db.Pruebas, "Id", "Nombre");
             
@@ -25,6 +30,11 @@ namespace ProyectoISW2.Controllers
         [HttpPost]
         public ActionResult Filtrar(Inventario viewmodel)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             // para simplificar el ejemplo, en lugar de ir a buscar datos a la base de datos
             // llenamos el objeto con datos de mentira
             LlenarConDatosDummy(viewmodel);
@@ -66,6 +76,11 @@ namespace ProyectoISW2.Controllers
 
         public ActionResult FiltrarManuales(Inventario viewmodel)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             // para simplificar el ejemplo, en lugar de ir a buscar datos a la base de datos
             // llenamos el objeto con datos de mentira
             LlenarConDatosDummyManuales(viewmodel);
@@ -108,6 +123,11 @@ namespace ProyectoISW2.Controllers
 
         public ActionResult FiltrarProyectores(Inventario viewmodel)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             // para simplificar el ejemplo, en lugar de ir a buscar datos a la base de datos
             // llenamos el objeto con datos de mentira
             LlenarConDatosDummyProyectores(viewmodel);
@@ -150,6 +170,11 @@ namespace ProyectoISW2.Controllers
 
         public ActionResult FiltrarLapices(Inventario viewmodel)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             // para simplificar el ejemplo, en lugar de ir a buscar datos a la base de datos
             // llenamos el objeto con datos de mentira
             LlenarConDatosDummyLapices(viewmodel);

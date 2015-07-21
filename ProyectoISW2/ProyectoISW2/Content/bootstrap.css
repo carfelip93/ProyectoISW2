@@ -15,6 +15,7 @@ html {
 }
 .inacap {
     background-color:#a30303 !important;
+    height:70px !important;
     
     
 }
@@ -31,6 +32,7 @@ html {
     margin-top:20px;
     top:0;
     display:block;
+    margin-bottom:10px !important;
     
     
 
@@ -192,6 +194,7 @@ html {
                 position:absolute;
                 margin-left: 20px !important;
                 margin-top:10px;
+                margin-bottom:10px !important;
             }
         
 

@@ -27,6 +27,7 @@
                 @Html.DisplayFor(modelItem => item.Seccion)
             </td>
             <td>
+                @Html.ActionLink("Agregar", "Stock", "Manuales", new { id = item.Id }, null) |
                 @Html.ActionLink("Editar", "Edit", "Manuales", new { id = item.Id }, null) |
 
                 @Html.ActionLink("Eliminar", "Delete", "Manuales", new { id = item.Id }, null)

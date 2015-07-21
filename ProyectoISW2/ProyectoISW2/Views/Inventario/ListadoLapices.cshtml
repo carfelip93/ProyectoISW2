@@ -16,9 +16,10 @@
                 @Html.DisplayFor(modelItem => item.Cantidad)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", "Lapices", new { id = item.Id }, null) |
+                @Html.ActionLink("Agregar", "Stock", "Lapices", new { id = item.Id }, null) |
+                @Html.ActionLink("Editar", "Edit", "Lapices", new { id = item.Id }, null) 
 
-                @Html.ActionLink("Eliminar", "Delete", "Lapices", new { id = item.Id }, null)
+                
             </td>
 </tr>
     }

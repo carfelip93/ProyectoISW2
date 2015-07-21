@@ -18,12 +18,22 @@ namespace ProyectoISW2.Controllers
         // GET: Lapices
         public ActionResult Index()
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             return View(db.Lapices.ToList());
         }
 
         // GET: Lapices/Details/5
         public ActionResult Details(int? id)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +49,11 @@ namespace ProyectoISW2.Controllers
         // GET: Lapices/Create
         public ActionResult Create()
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             return View();
         }
 
@@ -49,6 +64,11 @@ namespace ProyectoISW2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Cantidad")] Lapices lapices)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (ModelState.IsValid)
             {
                 db.Lapices.Add(lapices);
@@ -62,6 +82,11 @@ namespace ProyectoISW2.Controllers
         // GET: Lapices/Edit/5
         public ActionResult Edit(int? id)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -81,6 +106,11 @@ namespace ProyectoISW2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Cantidad")] Lapices lapices)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(lapices).State = EntityState.Modified;
@@ -93,6 +123,11 @@ namespace ProyectoISW2.Controllers
         // GET: Lapices/Delete/5
         public ActionResult Delete(int? id)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -110,6 +145,11 @@ namespace ProyectoISW2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             Lapices lapices = db.Lapices.Find(id);
             db.Lapices.Remove(lapices);
             db.SaveChanges();
@@ -123,6 +163,74 @@ namespace ProyectoISW2.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ActionResult Stock(int? id)
+        {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Lapices lapices = db.Lapices.Find(id);
+            if (lapices == null)
+            {
+                return HttpNotFound();
+            }
+            return View(lapices);
+        }
+
+        // POST: Pruebas/Edit/5
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
+        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+
+        public ActionResult Stock(int? Id, int? Cantidad)
+        {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
+
+            ViewBag.LapicesIdd = Id;
+            ViewBag.CantidadLapicess = Cantidad;
+            if (ModelState.IsValid)
+            {
+                int cantpbd, cantpf;
+
+                var queryp = (from l in db.Lapices
+                              where l.Id == Id
+                              select l);
+
+
+
+
+                if (queryp.Count() > 0 && queryp != null)
+                {
+                    Lapices lapices = queryp.First();
+
+                    cantpbd = Convert.ToInt32(lapices.Cantidad);
+                    cantpf = cantpbd + Convert.ToInt32(Cantidad);
+                    if (Cantidad < 0)
+                    {
+                        ViewBag.Message = "Lapices no suficientes";
+                    }
+                    else
+                    {
+                        lapices.Cantidad = cantpf;
+                        db.SaveChanges();
+                        return Redirect("/Inventario/");
+                    }
+
+
+                }
+
+            }
+            return View();
         }
     }
 }

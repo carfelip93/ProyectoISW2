@@ -18,6 +18,11 @@ namespace ProyectoISW2.Controllers
         // GET: Cursos
         public ActionResult Index()
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             var cursoes = db.Cursoes.Include(c => c.Lapices).Include(c => c.Manual).Include(c => c.Proyector).Include(c => c.Prueba);
             return View(cursoes.ToList());
         }
@@ -25,6 +30,11 @@ namespace ProyectoISW2.Controllers
         // GET: Cursos/Details/5
         public ActionResult Details(int? id)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -40,6 +50,11 @@ namespace ProyectoISW2.Controllers
         // GET: Cursos/Create
         public ActionResult Create()
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             ViewBag.LapicesId = new SelectList(db.Lapices, "Id", "Id");
             ViewBag.ManualId = new SelectList(db.Manuals, "Id", "Nombre");
             ViewBag.ProyectorId = new SelectList(db.Proyectors, "Id", "Modelo");
@@ -55,6 +70,11 @@ namespace ProyectoISW2.Controllers
         public ActionResult Create(DateTime? Fecha, int? CantidadLapices,int LapicesId,int? CantidadPrueba,int PruebaId,int? CantidadManual,int ManualId,  
             [Bind(Include = "Id,Ot,Docente,Fecha,Ubicacion,LapicesId,CantidadLapices,PruebaId,CantidadPrueba,ManualId,CantidadManual,ProyectorId")] Curso curso)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             
             if (ModelState.IsValid)
             {
@@ -159,6 +179,11 @@ namespace ProyectoISW2.Controllers
         // GET: Cursos/Edit/5
         public ActionResult Edit(int? id)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -182,6 +207,11 @@ namespace ProyectoISW2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(DateTime? Fecha,int? Id,[Bind(Include = "Id,Ot,Docente,Fecha,Ubicacion,LapicesId,CantidadLapices,PruebaId,CantidadPrueba,ManualId,CantidadManual,ProyectorId")] Curso curso)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             
             if (ModelState.IsValid)
             {
@@ -203,6 +233,11 @@ namespace ProyectoISW2.Controllers
         // GET: Cursos/Delete/5
         public ActionResult Delete(int? id)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -220,6 +255,11 @@ namespace ProyectoISW2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             Curso curso = db.Cursoes.Find(id);
             db.Cursoes.Remove(curso);
             db.SaveChanges();

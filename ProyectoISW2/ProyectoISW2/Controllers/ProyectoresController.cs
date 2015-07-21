@@ -18,12 +18,21 @@ namespace ProyectoISW2.Controllers
         // GET: Proyectores
         public ActionResult Index()
         {
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             return View(db.Proyectors.ToList());
         }
 
         // GET: Proyectores/Details/5
         public ActionResult Details(int? id)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +48,11 @@ namespace ProyectoISW2.Controllers
         // GET: Proyectores/Create
         public ActionResult Create()
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             return View();
         }
 
@@ -49,6 +63,11 @@ namespace ProyectoISW2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Modelo,Marca,Asignacion")] Proyector proyector)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (ModelState.IsValid)
             
             {
@@ -67,6 +86,11 @@ namespace ProyectoISW2.Controllers
         // GET: Proyectores/Edit/5
         public ActionResult Edit(int? id)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -86,6 +110,11 @@ namespace ProyectoISW2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Modelo,Marca,Asignacion")] Proyector proyector)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(proyector).State = EntityState.Modified;
@@ -98,6 +127,11 @@ namespace ProyectoISW2.Controllers
         // GET: Proyectores/Delete/5
         public ActionResult Delete(int? id)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -115,6 +149,11 @@ namespace ProyectoISW2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             Proyector proyector = db.Proyectors.Find(id);
             db.Proyectors.Remove(proyector);
             db.SaveChanges();

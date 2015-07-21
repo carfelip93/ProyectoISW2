@@ -19,12 +19,20 @@ namespace ProyectoISW2.Controllers
         // GET: Pruebas
         public ActionResult Index()
         {
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             return View(db.Pruebas.ToList());
         }
 
         // GET: Pruebas/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -40,6 +48,10 @@ namespace ProyectoISW2.Controllers
         // GET: Pruebas/Create
         public ActionResult Create()
         {
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             return View();
         }
 
@@ -50,6 +62,10 @@ namespace ProyectoISW2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Nombre,Cantidad,Seccion")] Prueba prueba)
         {
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (ModelState.IsValid)
             {
                 prueba.Nombre = prueba.Nombre.ToUpper();
@@ -65,6 +81,10 @@ namespace ProyectoISW2.Controllers
         // GET: Pruebas/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -84,6 +104,10 @@ namespace ProyectoISW2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Nombre,Cantidad,Seccion")] Prueba prueba)
         {
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(prueba).State = EntityState.Modified;
@@ -96,6 +120,11 @@ namespace ProyectoISW2.Controllers
         // GET: Pruebas/Delete/5
         public ActionResult Delete(int? id)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -113,6 +142,10 @@ namespace ProyectoISW2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             Prueba prueba = db.Pruebas.Find(id);
             db.Pruebas.Remove(prueba);
             db.SaveChanges();
@@ -130,6 +163,10 @@ namespace ProyectoISW2.Controllers
 
         public ActionResult Stock(int? id)
         {
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -149,6 +186,11 @@ namespace ProyectoISW2.Controllers
         
         public ActionResult Stock(int? Id,int? Cantidad)
         {
+
+            if (Session["userId"] == null)
+            {
+                return Redirect("/Usuarios/Login");
+            }
            
          ViewBag.PruebaIdd = Id;
          ViewBag.CantidadPruebass = Cantidad;

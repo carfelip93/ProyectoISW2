@@ -4,13 +4,13 @@
     ViewBag.Title = "Create";
 }
 <div class="formcustom form-horizontal">
-    <h3>Crear Manual</h3>
+    <h3 class="text-center">Crear Manual</h3>
 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
+        <div class="form-horizontal formf">
             
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -39,7 +39,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
+                <div class="col-md-offset-2 col-md-10 formfbut">
                     <input type="submit" value="Crear" class="btn btn-default" />
                 </div>
             </div>
@@ -47,6 +47,6 @@
     }
 
     <div>
-        @Html.ActionLink("Volver a la lista", "Index")
+        @Html.ActionLink("Volver", "Inventario", "Usuarios")
     </div>
 </div>

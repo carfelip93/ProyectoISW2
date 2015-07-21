@@ -454,6 +454,8 @@
     <Content Include="Views\Inventario\ListadoProyectores.cshtml" />
     <Content Include="Views\Inventario\ListadoLapices.cshtml" />
     <Content Include="Views\Pruebas\Stock.cshtml" />
+    <Content Include="Views\Manuales\Stock.cshtml" />
+    <Content Include="Views\Lapices\Stock.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
