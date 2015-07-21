@@ -18,7 +18,7 @@ namespace ProyectoISW2.Models
         [Required]
         public string Ot { get; set; }
 
-        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage =
+        [RegularExpression(@"^[ña-zÑA-ZáéíóúÁÉÍÓÚ''-'\s]{1,40}$", ErrorMessage =
             "Los números y caracteres especiales no están permitidos en el docente.")]
         [Required]
         public string Docente { get; set; }
@@ -27,7 +27,9 @@ namespace ProyectoISW2.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Fecha { get; set; }
-        
+
+        [RegularExpression(@"^[ña-zÑA-ZáéíóúÁÉÍÓÚ''-'\s]{1,40}$", ErrorMessage =
+            "Los números y caracteres especiales no están permitidos en la ubicacion.")]
         [Required]
         public string Ubicacion { get; set; }
 

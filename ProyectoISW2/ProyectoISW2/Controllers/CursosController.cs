@@ -109,19 +109,19 @@ namespace ProyectoISW2.Controllers
                 }
                 if (Convert.ToDateTime(Fecha).Year >= 1900)
                 {
-                    if (cantlf <= 0)
+                    if (cantlf < 0)
                     {
                         ViewBag.Message = "Lapices no suficientes";
                     }
                     else
                     {
-                        if (cantpf <= 0)
+                        if (cantpf < 0)
                         {
                             ViewBag.Message = "Pruebas no suficientes";
                         }
                         else
                         {
-                            if (cantmf <= 0)
+                            if (cantmf < 0)
                             {
                                 ViewBag.Message = "Manuales no suficientes";
                             }
@@ -142,6 +142,7 @@ namespace ProyectoISW2.Controllers
                 {
                     ViewBag.Message = "Ingrese Fecha Valida";
                 }
+
                
                 
             }
@@ -233,5 +234,6 @@ namespace ProyectoISW2.Controllers
             }
             base.Dispose(disposing);
         }
+      
     }
 }

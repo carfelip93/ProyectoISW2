@@ -3,67 +3,127 @@
     ViewBag.Title = "Inventario";
    
 }
-<script type="text/javascript">
-        $(document).ready(function () {
-               $("#Name").kendoAutoComplete({
-                        minLength: 1,
-                       dataTextField: "Nombre",
-                     suggest: true,
-                       filter: "startswith",
-                      dataSource: { serverFiltering: true,  transport: {read: {url: "/Inventario/GetManufacturers/",dataType: "json", type: "POST"}}}
-                 });
-         });
-     </script>
-<h2>Inventario</h2>
+
+
 @{
     ViewBag.Title = "Index";
 }
+<h4>Agregar Stock</h4>
+<hr />
+<div class="row ">
+   
+
+        @using (Ajax.BeginForm("Filtrar", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "listado" }))
+        {
+            @Html.AntiForgeryToken()
+
+            
+                
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-xs-3">
+                    @Html.LabelFor(model => model.NombrePrueba,"Nombre Prueba", htmlAttributes: new { @class = "" })
+                    
+                        @Html.EditorFor(model => model.NombrePrueba, new { htmlAttributes = new { @class = "form-control ", id = "#Name"} })
+                        @Html.ValidationMessageFor(model => model.NombrePrueba, "", new { @class = "text-danger" })
+                    <br />
+                    <input type="submit" value="Filtrar" class="btn btn-default" />
+                    
+                </div>
+   
+        }
+    
+    
+        @using (Ajax.BeginForm("FiltrarManuales", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "listado" }))
+        {
+            @Html.AntiForgeryToken()
+
+            
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-xs-3">
+                    @Html.LabelFor(model => model.NombreManual,"Nombre Manual", htmlAttributes: new { @class = "" })
+                    
+                        @Html.EditorFor(model => model.NombreManual, new { htmlAttributes = new { @class = "form-control", id = "#Name" } })
+                        @Html.ValidationMessageFor(model => model.NombreManual, "", new { @class = "text-danger" })
+                    <br />    
+                    <input type="submit" value="Filtrar" class="btn btn-default" />
+                    
+                </div>
+
+                
+           
+        }
+    @using (Ajax.BeginForm("FiltrarProyectores", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "listado" }))
+    {
+        @Html.AntiForgeryToken()
 
 
 
-@using (Ajax.BeginForm("Filtrar", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "listado" }))
-{
-    @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Filtro</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.NombrePrueba, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.NombrePrueba, new { htmlAttributes = new { @class = "form-control" , id="#Name"} })
-                @Html.ValidationMessageFor(model => model.NombrePrueba, "", new { @class = "text-danger" })
-            </div>
+        <div class="col-xs-3">
+            @Html.LabelFor(model => model.NombreProyector, "Marca Proyector", htmlAttributes: new { @class = "" })
+
+            @Html.EditorFor(model => model.NombreProyector, new { htmlAttributes = new { @class = "form-control", id = "#Name" } })
+           
+            @Html.ValidationMessageFor(model => model.NombreProyector, "", new { @class = "text-danger" })
+           <br />
+             <input type="submit" value="Filtrar" class="btn btn-default" />
+
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Filtrar" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
 
-@* elemento a actualizar con AJAX *@
-<div id="listado">
-    @* acá se renderizará un partial view pasándole la colección dentro del modelo y no el modelo completo *@
 
-    @{
-        Html.RenderPartial("Listado", Model.ListaDePruebas);
     }
-</div>
+    @using (Ajax.BeginForm("FiltrarLapices", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "listado" }))
+    {
+        @Html.AntiForgeryToken()
 
 
-@* es importante tener los scripts para que el ejemplo funcione *@
-<script src="~/Scripts/jquery-ui-1.11.4.min.js"></script>
-<script src="~/Scripts/jquery-2.1.4.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-<script src="~/scripts/jquery.unobtrusive-ajax.min.js"></script>
-<script src="@Url.Content("~/Scripts/bootstrap-typeahead.js")"></script>
-<link rel="stylesheet" href="styles/kendo.common.min.css" />
-<link rel="stylesheet" href="styles/kendo.default.min.css" />
 
-<script src="js/jquery.min.js"></script>
-<script src="js/kendo.all.min.js"></script>
+
+    <div class="col-xs-3">
+        @Html.Label("Mostrar Lapices", htmlAttributes: new { @class = "" })
+        <br />
+        <input type="submit" value="Mostrar" class="btn btn-default" />
+
+    </div>
+
+
+
+    }
+
+
+    
+    </div>
+<br />
+
+
+
+
+
+    @* elemento a actualizar con AJAX *@
+    <div id="listado">
+        @* acá se renderizará un partial view pasándole la colección dentro del modelo y no el modelo completo *@
+
+        @{
+            Html.RenderPartial("ListadoPruebas", Model.ListaDePruebas);
+            
+        }
+        
+    </div>
+
+
+    @* es importante tener los scripts para que el ejemplo funcione *@
+    <script src="~/Scripts/jquery-ui-1.11.4.min.js"></script>
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-typeahead.js")"></script>
+    <link rel="stylesheet" href="styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="styles/kendo.default.min.css" />
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/kendo.all.min.js"></script>

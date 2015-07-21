@@ -15,22 +15,22 @@
 }
 else
 {
-    
+
     if (Session["userId"] == null)
     {
-        <ul class="nav navbar-nav navbar-right inis">
 
+        <ul class="nav navbar-nav navbar-right">
             <li>@Html.ActionLink("Iniciar sesión", "Login", "Usuarios", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-        </ul>
-    }
-    else
-    {
-        <ul class="nav navbar-nav navbar-right inis">
-            <li>@Html.ActionLink("Cerrar sesión", "Logout", "Home", routeValues: null, htmlAttributes: new { id = "logoutLink" })</li>
-        </ul>
-    }
+            </ul>
+            }
+            else
+            {
+            <ul class="nav navbar-nav navbar-right ">
+                <li>@Html.ActionLink("Cerrar sesión", "Logout", "Home", routeValues: null, htmlAttributes: new { id = "logoutLink" })</li>
+            </ul>
+            }
 
 
 
 
-}
+            }

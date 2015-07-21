@@ -15,14 +15,14 @@ namespace ProyectoISW2.Models
         [Required]
         public string User { get; set; }
 
-        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage =
+        [RegularExpression(@"^[ña-zÑA-ZáéíóúÁÉÍÓÚ''-'\s]{1,40}$", ErrorMessage =
             "Los números y caracteres especiales no están permitidos en el nombre.")]
         [StringLength(20, ErrorMessage =
             "El nombre debe tener un maximo de 20 caracteres de longitud.")]
         [Required]
         public string Nombre { get; set; }
 
-        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage =
+        [RegularExpression(@"^[ña-zÑA-ZáéíóúÁÉÍÓÚ''-'\s]{1,40}$", ErrorMessage =
             "Los números y caracteres especiales no están permitidos en el apellido.")]
         
         [Required]

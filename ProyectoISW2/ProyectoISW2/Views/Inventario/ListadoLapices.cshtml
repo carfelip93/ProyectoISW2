@@ -1,0 +1,26 @@
+﻿@model IEnumerable<ProyectoISW2.Models.Lapices>
+
+
+<table class="table" style="width:100% !important">
+    <tr>
+        <th>
+            Cantidad Lapices
+        </th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", "Lapices", new { id = item.Id }, null) |
+
+                @Html.ActionLink("Eliminar", "Delete", "Lapices", new { id = item.Id }, null)
+            </td>
+</tr>
+    }
+
+</table>

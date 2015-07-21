@@ -10,32 +10,36 @@
         @Scripts.Render("~/bundles/modernizr")
 
     </head>
-    <body>
+    <body class="padb">
         
-            <div class="navbar navbar-inverse navbar-fixed-top inacap">
+            <div class="navbar-inverse  inacap">
+                <img src="~/Image/logoINACAP.png" class="inalogo" />
+                
+                <span class="areacap">Inventario Capacitaciones</span>
+               
+    
+
+    <div class="container">
+       
+        <div class="navbar-header">
+            
 
 
-                <div class="container">
-
-                    <div class="navbar-header">
-                        <h3 class="areacap">Inventario Capacitaciones</h3>
-
-                        <img src="~/Image/logoINACAP.png" class="inalogo" />
 
 
 
 
-                    </div>
-                    <div class="navbar-collapse collapse">
+        </div>
+        <div class="navbar-collapse collapse">
+            @Html.Partial("_LoginPartial")
 
-                        @Html.Partial("_LoginPartial")
 
 
-                    </div>
+        </div>
 
-                </div>
+    </div>
 
-            </div>
+</div>
 
             
                     <div class="container body-content altoo">
@@ -52,7 +56,7 @@
             <ul class="nav navbar-nav ">
                 <li class="custli">@Html.ActionLink("Usuarios", "Index", "Usuarios")</li>
                 <li class="custli">@Html.ActionLink("Cursos", "Index", "Cursos")</li>
-                <li class="custli">@Html.ActionLink("Stock", "Index", "Stocks")</li>
+                <li class="custli">@Html.ActionLink("Agregar Stock", "Index", "Inventario")</li>
                 <li class="dropdown custli">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -72,7 +76,7 @@
             <ul class="nav navbar-nav ">
 
                 <li class="custli">@Html.ActionLink("Cursos", "Index", "Cursos")</li>
-                <li class="custli">@Html.ActionLink("Stock", "Index", "Stocks")</li>
+                <li class="custli">@Html.ActionLink("Agregar Stock", "Index", "Inventario")</li>
                 <li class="dropdown custli">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario <span class="caret"></span></a>
                     <ul class="dropdown-menu">

@@ -27,9 +27,11 @@ namespace ProyectoISW2
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                   "~/Scripts/jquery.unobtrusive*",
-                   "~/Scripts/jquery.validate*"));
-        }
+                   "~/Scripts/jquery.unobtrusive*"));
+
+            BundleTable.EnableOptimizations = false;
+                   }
 
     }
+
 }

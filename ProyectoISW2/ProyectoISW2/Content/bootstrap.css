@@ -15,27 +15,26 @@ html {
 }
 .inacap {
     background-color:#a30303 !important;
-    height: 85px !important;
-    
-    
     
     
 }
 
+.padb {
+    padding-top:0 !important;
+}
 .areacap {
-    padding-left:300px;
-    position:fixed;
-    margin-top:33px !important;
+    
     color:#fff;
+    margin-left:25%;
+    position:absolute !important;
+    font-size:24px;
+    margin-top:20px;
+    top:0;
+    display:block;
+    
     
 
 }
-
-
-
-    
-
-
 
     .altoo {
         width: 80% !important;
@@ -48,13 +47,6 @@ html {
         height:100%;
         min-height:550px;
 
-        
-       
-        
-        
-        
-        
-        
     }
 
 
@@ -83,23 +75,70 @@ html {
     margin-top:25px;
     font-size:30px;
     padding-left:40px;
+    padding-right:40px;
+    width:100% !important;
 }
 .baninis {
     margin-left:20px !important;
 }
-.inis {
-   
-    margin-top:20px !important;
-    font-size:18px !important;
+.margenh {
+    margin-top:8% !important;
 }
 
+.inis {
+   
+   
+   width:10%;
+   position:relative;
+   float:none!important;
+   
+    
+}
+.tamup {
+    position:relative;
+    width:10% !important;
+    margin-left:90%;
+    float:right;
+}
+.formchi {
+    width:40% !important;
+    margin-left:30% !important;
+    margin-right:30% !important;
+}
+.butchi {
+    width:80% !important;
+    margin-left:20% !important;
+    margin-right:0% !important;
+
+}
+.ises {
+    width:50% !important;
+    margin-left:30% !important;
+    margin-right:20% !important;
+}
+.formf {
+    width:80% !important;
+    margin-left:20% !important;
+    margin-right:0% !important;
+}
+.formfbut {
+    width:50% !important;
+    margin-left:30% !important;
+    margin-right:20% !important;
+}
+.isesbut {
+    width:50% !important;
+    margin-left:30% !important;
+    margin-right:25% !important;
+}
     .formcentro {
         margin-left: 320px !important;
 
     }
     .formcustom {
-        margin-left: 100px !important;
-        margin-right: 100px !important;
+        width: 90% !important;
+        margin-left: 5% !important;
+        margin-right: 5% !important;
         height:100% !important;
         
         
@@ -121,19 +160,15 @@ html {
                 margin-left: 0px !important;
                 margin-right: 0px !important;
             }
-            
-        
-
-        
-
+          
        
             .custmenu {
-                width:600px;
-                margin-left:300px;
-                margin-right:300px;
+                width:70% !important;
+                margin-left:15% !important;
+                margin-right:15% !important;
                 padding-left:2%;
                 padding-right:2%;
-               position:absolute !important;
+               
                z-index:3;
                
                 
@@ -154,18 +189,16 @@ html {
 
        
             .inalogo {
+                position:absolute;
                 margin-left: 20px !important;
+                margin-top:10px;
             }
         
 
-        .inalogo {
-            position: relative !important;
-            margin-bottom: 20px;
-            margin-top: 20px;
-        }
+        
 
         body {
-            padding-top: 85px !important;
+            
             margin: 0;
             background-color:#c6c2c2 !important;
             bottom:0 !important;

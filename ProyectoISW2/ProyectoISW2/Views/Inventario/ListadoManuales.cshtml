@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ProyectoISW2.Models.Manual>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Seccion)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seccion)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", "Manuales", new { id = item.Id }, null) |
+
+                @Html.ActionLink("Eliminar", "Delete", "Manuales", new { id = item.Id }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
